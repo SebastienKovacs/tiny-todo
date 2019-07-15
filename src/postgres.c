@@ -11,7 +11,6 @@ void stop_connection_db(PGconn *conn, PGresult *res)
 	if (res){
 		PQclear(res);
 	}
-	//exit(1);
 }
 
 
