@@ -1,0 +1,90 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.13">
+  <compounddef id="select__day_8c" kind="file" language="C++">
+    <compoundname>select_day.c</compoundname>
+    <includes refid="select__day_8h" local="yes">select_day.h</includes>
+    <incdepgraph>
+      <node id="28">
+        <label>src/select_day.c</label>
+        <link refid="select__day_8c"/>
+        <childnode refid="29" relation="include">
+        </childnode>
+      </node>
+      <node id="29">
+        <label>select_day.h</label>
+        <link refid="select__day_8h"/>
+        <childnode refid="30" relation="include">
+        </childnode>
+        <childnode refid="31" relation="include">
+        </childnode>
+        <childnode refid="32" relation="include">
+        </childnode>
+      </node>
+      <node id="31">
+        <label>stdlib.h</label>
+      </node>
+      <node id="32">
+        <label>time.h</label>
+      </node>
+      <node id="30">
+        <label>stdio.h</label>
+      </node>
+    </incdepgraph>
+      <sectiondef kind="func">
+      <memberdef kind="function" id="select__day_8c_1aca420c4d7ba8f6152298ea3ee7691ede" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>struct tm</type>
+        <definition>static struct tm get_date</definition>
+        <argsstring>()</argsstring>
+        <name>get_date</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Just returns the current date in form of </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/select_day.c" line="14" column="1" bodyfile="src/select_day.c" bodystart="6" bodyend="10"/>
+      </memberdef>
+      <memberdef kind="function" id="select__day_8c_1a35504e0c76033ef1b134d1c13c289740" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>char *</type>
+        <definition>char* date_as_str</definition>
+        <argsstring>()</argsstring>
+        <name>date_as_str</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Makes a string out of the current_date struct. This is needed because this string is actually the name of the psql table corresponding to the said date. </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/select_day.c" line="17" column="1" bodyfile="src/select_day.c" bodystart="17" bodyend="27"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="preprocessor">#include<sp/>&quot;<ref refid="select__day_8h" kindref="compound">select_day.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="2"><highlight class="normal"></highlight></codeline>
+<codeline lineno="3"><highlight class="normal"></highlight></codeline>
+<codeline lineno="6"><highlight class="keyword">static</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal">tm<sp/>get_date()</highlight></codeline>
+<codeline lineno="7"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="8"><highlight class="normal"><sp/><sp/><sp/><sp/>time_t<sp/>t<sp/>=<sp/>time(NULL);</highlight></codeline>
+<codeline lineno="9"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>*localtime(&amp;t);</highlight></codeline>
+<codeline lineno="10"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="11"><highlight class="normal"></highlight></codeline>
+<codeline lineno="12"><highlight class="normal"></highlight></codeline>
+<codeline lineno="17" refid="select__day_8h_1a35504e0c76033ef1b134d1c13c289740" refkind="member"><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*<ref refid="select__day_8c_1a35504e0c76033ef1b134d1c13c289740" kindref="member">date_as_str</ref>()</highlight></codeline>
+<codeline lineno="18"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="19"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal">tm<sp/>current_time<sp/>=<sp/>get_date();</highlight></codeline>
+<codeline lineno="20"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*date<sp/>=<sp/>malloc<sp/>(15<sp/>*<sp/></highlight><highlight class="keyword">sizeof</highlight><highlight class="normal">(</highlight><highlight class="keywordtype">char</highlight><highlight class="normal">));</highlight></codeline>
+<codeline lineno="21"><highlight class="normal"></highlight></codeline>
+<codeline lineno="22"><highlight class="normal"><sp/><sp/><sp/><sp/>sprintf(date,<sp/></highlight><highlight class="stringliteral">&quot;_%d_%d_%d&quot;</highlight><highlight class="normal">,<sp/>current_time.tm_year<sp/>+<sp/>1900,</highlight></codeline>
+<codeline lineno="23"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>current_time.tm_mon<sp/>+<sp/>1,</highlight></codeline>
+<codeline lineno="24"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>current_time.tm_mday);</highlight></codeline>
+<codeline lineno="25"><highlight class="normal"></highlight></codeline>
+<codeline lineno="26"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>date;</highlight></codeline>
+<codeline lineno="27"><highlight class="normal">}</highlight></codeline>
+    </programlisting>
+    <location file="src/select_day.c"/>
+  </compounddef>
+</doxygen>

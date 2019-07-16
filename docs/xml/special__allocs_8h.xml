@@ -1,0 +1,102 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.13">
+  <compounddef id="special__allocs_8h" kind="file" language="C++">
+    <compoundname>special_allocs.h</compoundname>
+    <includes local="no">stdlib.h</includes>
+    <includedby refid="postgres_8c" local="yes">src/postgres.c</includedby>
+    <includedby refid="special__allocs_8c" local="yes">src/special_allocs.c</includedby>
+    <incdepgraph>
+      <node id="47">
+        <label>stdlib.h</label>
+      </node>
+      <node id="46">
+        <label>src/special_allocs.h</label>
+        <link refid="special__allocs_8h"/>
+        <childnode refid="47" relation="include">
+        </childnode>
+      </node>
+    </incdepgraph>
+    <invincdepgraph>
+      <node id="49">
+        <label>src/postgres.c</label>
+        <link refid="postgres_8c"/>
+      </node>
+      <node id="50">
+        <label>src/special_allocs.c</label>
+        <link refid="special__allocs_8c"/>
+      </node>
+      <node id="48">
+        <label>src/special_allocs.h</label>
+        <link refid="special__allocs_8h"/>
+        <childnode refid="49" relation="include">
+        </childnode>
+        <childnode refid="50" relation="include">
+        </childnode>
+      </node>
+    </invincdepgraph>
+      <sectiondef kind="func">
+      <memberdef kind="function" id="special__allocs_8h_1a88096054ddc86913497fd58517582e69" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>char ***</type>
+        <definition>char*** alloc_data</definition>
+        <argsstring>(int dim1, int dim2)</argsstring>
+        <name>alloc_data</name>
+        <param>
+          <type>int</type>
+          <declname>dim1</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>dim2</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Basically allocs a triple char pointer according the the dimensions specified in the parameters. Used to alloc the char ***data which holds a complete table from the database. </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/special_allocs.h" line="6" column="1" bodyfile="src/special_allocs.c" bodystart="8" bodyend="20"/>
+      </memberdef>
+      <memberdef kind="function" id="special__allocs_8h_1aedf57266b606045967b8ab72a802fb76" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void free_data</definition>
+        <argsstring>(char ***data, int dim1, int dim2)</argsstring>
+        <name>free_data</name>
+        <param>
+          <type>char ***</type>
+          <declname>data</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>dim1</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>dim2</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Frees said memeory allocated above. </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/special_allocs.h" line="7" column="1" bodyfile="src/special_allocs.c" bodystart="25" bodyend="34"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="preprocessor">#ifndef<sp/>SPECIAL_ALLOCS_H</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="2"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>SPECIAL_ALLOCS_H</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="3"><highlight class="normal"></highlight></codeline>
+<codeline lineno="4"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;stdlib.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="5"><highlight class="normal"></highlight></codeline>
+<codeline lineno="6"><highlight class="normal"></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>***<ref refid="special__allocs_8h_1a88096054ddc86913497fd58517582e69" kindref="member">alloc_data</ref>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>dim1,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>dim2);</highlight></codeline>
+<codeline lineno="7"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="special__allocs_8h_1aedf57266b606045967b8ab72a802fb76" kindref="member">free_data</ref>(</highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>***data,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>dim1,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>dim2);</highlight></codeline>
+<codeline lineno="8"><highlight class="normal"></highlight></codeline>
+<codeline lineno="9"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight></codeline>
+    </programlisting>
+    <location file="src/special_allocs.h"/>
+  </compounddef>
+</doxygen>

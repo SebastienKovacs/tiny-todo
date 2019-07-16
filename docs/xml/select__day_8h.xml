@@ -1,0 +1,89 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.13">
+  <compounddef id="select__day_8h" kind="file" language="C++">
+    <compoundname>select_day.h</compoundname>
+    <includes local="no">stdio.h</includes>
+    <includes local="no">stdlib.h</includes>
+    <includes local="no">time.h</includes>
+    <includedby refid="gui_8c" local="yes">src/gui.c</includedby>
+    <includedby refid="postgres_8c" local="yes">src/postgres.c</includedby>
+    <includedby refid="select__day_8c" local="yes">src/select_day.c</includedby>
+    <incdepgraph>
+      <node id="34">
+        <label>src/select_day.h</label>
+        <link refid="select__day_8h"/>
+        <childnode refid="35" relation="include">
+        </childnode>
+        <childnode refid="36" relation="include">
+        </childnode>
+        <childnode refid="37" relation="include">
+        </childnode>
+      </node>
+      <node id="36">
+        <label>stdlib.h</label>
+      </node>
+      <node id="37">
+        <label>time.h</label>
+      </node>
+      <node id="35">
+        <label>stdio.h</label>
+      </node>
+    </incdepgraph>
+    <invincdepgraph>
+      <node id="41">
+        <label>src/select_day.c</label>
+        <link refid="select__day_8c"/>
+      </node>
+      <node id="38">
+        <label>src/select_day.h</label>
+        <link refid="select__day_8h"/>
+        <childnode refid="39" relation="include">
+        </childnode>
+        <childnode refid="40" relation="include">
+        </childnode>
+        <childnode refid="41" relation="include">
+        </childnode>
+      </node>
+      <node id="40">
+        <label>src/postgres.c</label>
+        <link refid="postgres_8c"/>
+      </node>
+      <node id="39">
+        <label>src/gui.c</label>
+        <link refid="gui_8c"/>
+      </node>
+    </invincdepgraph>
+      <sectiondef kind="func">
+      <memberdef kind="function" id="select__day_8h_1a35504e0c76033ef1b134d1c13c289740" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>char *</type>
+        <definition>char* date_as_str</definition>
+        <argsstring>()</argsstring>
+        <name>date_as_str</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Makes a string out of the current_date struct. This is needed because this string is actually the name of the psql table corresponding to the said date. </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/select_day.h" line="8" column="1" bodyfile="src/select_day.c" bodystart="17" bodyend="27"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="preprocessor">#ifndef<sp/>SELECT_DAY_H</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="2"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>SELECT_DAY_H</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="3"><highlight class="normal"></highlight></codeline>
+<codeline lineno="4"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;stdio.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="5"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;stdlib.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="6"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;time.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="7"><highlight class="normal"></highlight></codeline>
+<codeline lineno="8"><highlight class="normal"></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*<ref refid="select__day_8h_1a35504e0c76033ef1b134d1c13c289740" kindref="member">date_as_str</ref>();</highlight></codeline>
+<codeline lineno="9"><highlight class="normal"></highlight></codeline>
+<codeline lineno="10"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight></codeline>
+    </programlisting>
+    <location file="src/select_day.h"/>
+  </compounddef>
+</doxygen>

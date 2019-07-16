@@ -1,0 +1,42 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygenindex xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="index.xsd" version="1.8.13">
+  <compound refid="gui_8c" kind="file"><name>gui.c</name>
+    <member refid="gui_8c_1a59b418a9aae9f2e2857f4a43adbefe16" kind="function"><name>add_page_todays_date</name></member>
+    <member refid="gui_8c_1af5ff0123b7443cd1106720cbc744fdb6" kind="function"><name>create_notebook</name></member>
+    <member refid="gui_8c_1aba76b13326477ee2a3456864098f992a" kind="function"><name>create_app</name></member>
+    <member refid="gui_8c_1a0ddf1224851353fc92bfbff6f499fa97" kind="function"><name>main</name></member>
+  </compound>
+  <compound refid="postgres_8c" kind="file"><name>postgres.c</name>
+    <member refid="postgres_8c_1aae4c366a683913f1cf6daf2d34af904c" kind="function"><name>stop_connection_db</name></member>
+    <member refid="postgres_8c_1acbd5a8380d5bf96ad26da5f608eea7c3" kind="function"><name>connect_to_db</name></member>
+    <member refid="postgres_8c_1a2ebb76a0d0bd2ef4e97f7ffab04557ef" kind="function"><name>get_rows</name></member>
+    <member refid="postgres_8c_1af2d0925e7afa0b5a71432709b6c4305f" kind="function"><name>get_columns</name></member>
+    <member refid="postgres_8c_1a37cb502eb3db86a087c48f34a382d836" kind="function"><name>make_sql_query</name></member>
+    <member refid="postgres_8c_1a0fe4bf1274aa2885b4f2f05722102b8d" kind="function"><name>get_data</name></member>
+  </compound>
+  <compound refid="postgres_8h" kind="file"><name>postgres.h</name>
+    <member refid="postgres_8h_1aae4c366a683913f1cf6daf2d34af904c" kind="function"><name>stop_connection_db</name></member>
+    <member refid="postgres_8h_1acbd5a8380d5bf96ad26da5f608eea7c3" kind="function"><name>connect_to_db</name></member>
+    <member refid="postgres_8h_1a2ebb76a0d0bd2ef4e97f7ffab04557ef" kind="function"><name>get_rows</name></member>
+    <member refid="postgres_8h_1af2d0925e7afa0b5a71432709b6c4305f" kind="function"><name>get_columns</name></member>
+    <member refid="postgres_8h_1a37cb502eb3db86a087c48f34a382d836" kind="function"><name>make_sql_query</name></member>
+    <member refid="postgres_8h_1a0fe4bf1274aa2885b4f2f05722102b8d" kind="function"><name>get_data</name></member>
+  </compound>
+  <compound refid="select__day_8c" kind="file"><name>select_day.c</name>
+    <member refid="select__day_8c_1aca420c4d7ba8f6152298ea3ee7691ede" kind="function"><name>get_date</name></member>
+    <member refid="select__day_8c_1a35504e0c76033ef1b134d1c13c289740" kind="function"><name>date_as_str</name></member>
+  </compound>
+  <compound refid="select__day_8h" kind="file"><name>select_day.h</name>
+    <member refid="select__day_8h_1a35504e0c76033ef1b134d1c13c289740" kind="function"><name>date_as_str</name></member>
+  </compound>
+  <compound refid="special__allocs_8c" kind="file"><name>special_allocs.c</name>
+    <member refid="special__allocs_8c_1a88096054ddc86913497fd58517582e69" kind="function"><name>alloc_data</name></member>
+    <member refid="special__allocs_8c_1aedf57266b606045967b8ab72a802fb76" kind="function"><name>free_data</name></member>
+  </compound>
+  <compound refid="special__allocs_8h" kind="file"><name>special_allocs.h</name>
+    <member refid="special__allocs_8h_1a88096054ddc86913497fd58517582e69" kind="function"><name>alloc_data</name></member>
+    <member refid="special__allocs_8h_1aedf57266b606045967b8ab72a802fb76" kind="function"><name>free_data</name></member>
+  </compound>
+  <compound refid="dir_68267d1309a1af8e8297ef4c3efbcdba" kind="dir"><name>src</name>
+  </compound>
+</doxygenindex>

@@ -1,0 +1,18 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.13">
+  <compounddef id="dir_68267d1309a1af8e8297ef4c3efbcdba" kind="dir">
+    <compoundname>src</compoundname>
+    <innerfile refid="gui_8c">gui.c</innerfile>
+    <innerfile refid="postgres_8c">postgres.c</innerfile>
+    <innerfile refid="postgres_8h">postgres.h</innerfile>
+    <innerfile refid="select__day_8c">select_day.c</innerfile>
+    <innerfile refid="select__day_8h">select_day.h</innerfile>
+    <innerfile refid="special__allocs_8c">special_allocs.c</innerfile>
+    <innerfile refid="special__allocs_8h">special_allocs.h</innerfile>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="src/"/>
+  </compounddef>
+</doxygen>

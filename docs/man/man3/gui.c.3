@@ -1,0 +1,52 @@
+.TH "src/gui.c" 3 "Tue Jul 16 2019" "Version 0.1" "tiny-todo" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+src/gui.c
+.SH SYNOPSIS
+.br
+.PP
+\fC#include <gtk/gtk\&.h>\fP
+.br
+\fC#include 'select_day\&.h'\fP
+.br
+\fC#include 'postgres\&.h'\fP
+.br
+
+.SS "Functions"
+
+.in +1c
+.ti -1c
+.RI "void \fBadd_page_todays_date\fP (GtkNotebook *mainNb)"
+.br
+.ti -1c
+.RI "GtkNotebook * \fBcreate_notebook\fP (GtkBuilder *builder)"
+.br
+.ti -1c
+.RI "GtkWindow * \fBcreate_app\fP (GtkWindow *window)"
+.br
+.ti -1c
+.RI "int \fBmain\fP (int argc, char *argv[])"
+.br
+.in -1c
+.SH "Function Documentation"
+.PP 
+.SS "void add_page_todays_date (GtkNotebook * mainNb)"
+Creates a tab in mainNb with the tasks for the current day\&. Right now it really only takes the todos for the 9th of july because the function to create new psql tables if there are no entries for a date isn't done yet\&. 
+.PP
+Definition at line 11 of file gui\&.c\&.
+.SS "GtkWindow* create_app (GtkWindow * window)"
+Initializes the main componenets like builder or the root widget, in this case the GtkWindow main_window\&. Calls \fBcreate_notebook()\fP\&. 
+.PP
+Definition at line 50 of file gui\&.c\&.
+.SS "GtkNotebook* create_notebook (GtkBuilder * builder)"
+Creates a GtkNotebook, adds it to a GtkBox and then calls \fBadd_page_todays_date()\fP to fill it with some content\&. Maybe in the future the builder parameter will be removed since only makes me save two or three lines of code\&. 
+.PP
+Definition at line 33 of file gui\&.c\&.
+.SS "int main (int argc, char * argv[])"
+Just the entry point of the programm, nothing special happening here\&. 
+.PP
+Definition at line 69 of file gui\&.c\&.
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for tiny-todo from the source code\&.

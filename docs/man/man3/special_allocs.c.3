@@ -1,0 +1,34 @@
+.TH "src/special_allocs.c" 3 "Tue Jul 16 2019" "Version 0.1" "tiny-todo" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+src/special_allocs.c
+.SH SYNOPSIS
+.br
+.PP
+\fC#include 'special_allocs\&.h'\fP
+.br
+
+.SS "Functions"
+
+.in +1c
+.ti -1c
+.RI "char *** \fBalloc_data\fP (int dim1, int dim2)"
+.br
+.ti -1c
+.RI "void \fBfree_data\fP (char ***data, int dim1, int dim2)"
+.br
+.in -1c
+.SH "Function Documentation"
+.PP 
+.SS "char*** alloc_data (int dim1, int dim2)"
+Basically allocs a triple char pointer according the the dimensions specified in the parameters\&. Used to alloc the char ***data which holds a complete table from the database\&. 
+.PP
+Definition at line 8 of file special_allocs\&.c\&.
+.SS "void free_data (char *** data, int dim1, int dim2)"
+Frees said memeory allocated above\&. 
+.PP
+Definition at line 25 of file special_allocs\&.c\&.
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for tiny-todo from the source code\&.
