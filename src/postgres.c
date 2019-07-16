@@ -104,7 +104,7 @@ static void create_table(PGconn *conn, char *date)
 	const char *ctStr2 = "(task text NOT NULL, done int NOT NULL)";
 	char query[80];
 	sprintf(query, "%s%s%s", ctStr1, date, ctStr2);
-	printf("%s\n", query);
+	printf("create table\n");
 
 	PQexec(conn, query);
 }
@@ -119,6 +119,12 @@ char ***get_data(char *date)
 	PGconn *conn = connect_to_db();
 	char *query = make_sql_query(date);
 	PGresult *res = PQexec(conn, query);
+	
+	if (PQresultStatus(res) != PGRES_COMMAND_OK){
+		printf("%d\n", PQresultStatus(res));
+		create_table(conn, date);
+		res = PQexec(conn, query);
+	}
 
 	int rows = PQntuples(res);
 	int columns = PQnfields(res);
