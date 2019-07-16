@@ -36,6 +36,18 @@ static PGconn *connect_to_db()
 }
 
 
+/**Just takes the desired date as a string wich you can get from
+*  date_as_str() in select_day.c and uses it to make an psql query.
+*/
+static char *make_sql_query(char *date)
+{
+	char *query = malloc (50 * sizeof(char));
+	sprintf(query, "SELECT task, done FROM %s", date);
+
+	return query;
+}
+
+
 /**This function is very usefull for the times you want to do memory
 *  allocation for a pointer to fit a part or the whole database in it.
 *  The function returns the number of rows in a table in a db.
@@ -83,15 +95,18 @@ int get_columns(PGresult *res, char *date){
 }
 
 
-/**Just takes the desired date as a string wich you can get from
-*  date_as_str() in select_day.c and uses it to make an psql query.
+/**Creates a table in given db, used when there is no table for a 
+*  given date.
 */
-static char *make_sql_query(char *date)
+static void create_table(PGconn *conn, char *date)
 {
-	char *query = malloc (50 * sizeof(char));
-	sprintf(query, "SELECT task, done FROM %s", date);
+	const char *ctStr1 = "CREATE TABLE ";
+	const char *ctStr2 = "(task text NOT NULL, done int NOT NULL)";
+	char query[80];
+	sprintf(query, "%s%s%s", ctStr1, date, ctStr2);
+	printf("%s\n", query);
 
-	return query;
+	PQexec(conn, query);
 }
 
 
@@ -107,7 +122,6 @@ char ***get_data(char *date)
 
 	int rows = PQntuples(res);
 	int columns = PQnfields(res);
-	printf("%d\n", rows);
 	char ***data = alloc_data(rows, columns); 
 
 	for (int i = 0; i < rows ; ++i){
