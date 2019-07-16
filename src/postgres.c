@@ -7,7 +7,7 @@
 *  with one or both of the arguments being null. I wrote it this way so 
 *  I can call it even when I don't have both conn and res in scope.
 */
-void stop_connection_db(PGconn *conn, PGresult *res)
+static void stop_connection_db(PGconn *conn, PGresult *res)
 {
 	if (conn){
 		PQfinish(conn);
@@ -21,7 +21,7 @@ void stop_connection_db(PGconn *conn, PGresult *res)
 /**Connects to a database. The connection string conninfo will later
 *  be stored in a config file and be accessed with libconfig.
 */
-PGconn *connect_to_db()
+static PGconn *connect_to_db()
 {
 	const char *conninfo = "dbname=tiny-todo";
 	PGconn *conn = PQconnectdb(conninfo);
@@ -86,7 +86,7 @@ int get_columns(PGresult *res, char *date){
 /**Just takes the desired date as a string wich you can get from
 *  date_as_str() in select_day.c and uses it to make an psql query.
 */
-char *make_sql_query(char *date)
+static char *make_sql_query(char *date)
 {
 	char *query = malloc (50 * sizeof(char));
 	sprintf(query, "SELECT task, done FROM %s", date);
