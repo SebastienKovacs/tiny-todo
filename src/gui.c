@@ -16,11 +16,11 @@ void add_page_todays_date(GtkNotebook *mainNb)
 
 	int rows = get_rows(NULL, "_2019_7_9");
 
-	for (int i = 0; i <= rows; ++i){
+	for (int i = 0; i < rows; ++i){
 		label = gtk_label_new(data[i][0]);
 		gtk_box_pack_start(pageBox, label, FALSE, FALSE, 2);
 	}
-	
+
 	gtk_notebook_append_page(mainNb, GTK_WIDGET(pageBox), gtk_label_new("_2019_7_9"));
 }
 

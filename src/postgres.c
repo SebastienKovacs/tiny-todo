@@ -49,14 +49,13 @@ int get_rows(PGresult *res, char *date){
 		char *query = make_sql_query(date);
 		res = PQexec(conn, query);
 
-		rows = PQnfields(res);
+		rows = PQntuples(res);
 		stop_connection_db(conn, res);
 		return rows;
 	}
 
-	rows = PQnfields(res);
+	rows = PQntuples(res);
 	stop_connection_db(NULL, res);
-	printf("%d\n", rows);
 	return rows; 
 }
 
@@ -108,6 +107,7 @@ char ***get_data(char *date)
 
 	int rows = PQntuples(res);
 	int columns = PQnfields(res);
+	printf("%d\n", rows);
 	char ***data = alloc_data(rows, columns); 
 
 	for (int i = 0; i < rows ; ++i){
