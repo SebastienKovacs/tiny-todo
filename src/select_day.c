@@ -1,6 +1,8 @@
 #include "select_day.h"
 
 
+/**Just returns the current date in form of 
+*/
 static struct tm get_date()
 {
 	time_t t = time(NULL);
@@ -8,12 +10,18 @@ static struct tm get_date()
 }
 
 
+/**Makes a string out of the current_date struct. This is needed because 
+*  this string is actually the name of the psql table corresponding to the
+*  said date.
+*/
 char *date_as_str()
 {
-	struct tm tm = get_date();
+	struct tm current_time = get_date();
 	char *date = malloc (15 * sizeof(char));
 
-	sprintf(date, "_%d_%d_%d", tm.tm_year + 1900, tm.tm_mon + 1, tm.tm_mday);
+	sprintf(date, "_%d_%d_%d", current_time.tm_year + 1900,
+				   current_time.tm_mon + 1,
+				   current_time.tm_mday);
 
 	return date;
 }

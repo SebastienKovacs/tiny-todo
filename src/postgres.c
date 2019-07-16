@@ -3,6 +3,10 @@
 #include "special_allocs.h"
 
 
+/**Closes connection or frees res or both. This function can be called
+*  with one or both of the arguments being null. I wrote it this way so 
+*  I can call it even when I don't have both conn and res in scope.
+*/
 void stop_connection_db(PGconn *conn, PGresult *res)
 {
 	if (conn){
@@ -14,6 +18,9 @@ void stop_connection_db(PGconn *conn, PGresult *res)
 }
 
 
+/**Connects to a database. The connection string conninfo will later
+*  be stored in a config file and be accessed with libconfig.
+*/
 PGconn *connect_to_db()
 {
 	const char *conninfo = "dbname=tiny-todo";
@@ -29,6 +36,11 @@ PGconn *connect_to_db()
 }
 
 
+/**This function is very usefull for the times you want to do memory
+*  allocation for a pointer to fit a part or the whole database in it.
+*  The function returns the number of rows in a table in a db.
+*  I use it in the for loops in special_allocs.c 
+*/
 int get_rows(PGresult *res, char *date){
 	int rows = 0;
 
@@ -44,11 +56,13 @@ int get_rows(PGresult *res, char *date){
 
 	rows = PQnfields(res);
 	stop_connection_db(NULL, res);
-
+	printf("%d\n", rows);
 	return rows; 
 }
 
 
+/**Same as above but with columns instead of rows.
+*/
 int get_columns(PGresult *res, char *date){
 	int columns = 0;
 
@@ -70,6 +84,9 @@ int get_columns(PGresult *res, char *date){
 }
 
 
+/**Just takes the desired date as a string wich you can get from
+*  date_as_str() in select_day.c and uses it to make an psql query.
+*/
 char *make_sql_query(char *date)
 {
 	char *query = malloc (50 * sizeof(char));
@@ -79,6 +96,10 @@ char *make_sql_query(char *date)
 }
 
 
+/**The big function of this file. It takes the whole table out of the db
+*  and puts it in this triple char pointer, aka a string table and return
+*  it.
+*/
 char ***get_data(char *date)
 {
 	PGconn *conn = connect_to_db();

@@ -1,6 +1,10 @@
 #include "special_allocs.h"
 
 
+/**Basically allocs a triple char pointer according the the dimensions 
+*  specified in the parameters. Used to alloc the char ***data which
+*  holds a complete table from the database.
+*/
 char ***alloc_data(int dim1, int dim2)
 {
 	char ***data = malloc (dim1 * sizeof(char**));
@@ -16,6 +20,8 @@ char ***alloc_data(int dim1, int dim2)
 }
 
 
+/**Frees said memeory allocated above.
+*/
 void free_data(char ***data, int dim1, int dim2)
 {
 	for (int i = 0; i < dim1; ++i){
