@@ -104,7 +104,6 @@ static void create_table(PGconn *conn, char *date)
 	const char *ctStr2 = "(task text NOT NULL, done int NOT NULL)";
 	char query[80];
 	sprintf(query, "%s%s%s", ctStr1, date, ctStr2);
-	printf("create table\n");
 
 	PQexec(conn, query);
 }
@@ -121,7 +120,6 @@ char ***get_data(char *date)
 	PGresult *res = PQexec(conn, query);
 
 	if (PQresultStatus(res) == PGRES_FATAL_ERROR){
-		printf("%d\n", PQresultStatus(res));
 		create_table(conn, date);
 		res = PQexec(conn, query);
 	}
