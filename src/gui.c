@@ -3,13 +3,6 @@
 #include "postgres.h"
 
 
-void add_todo(GtkWidget *addEntry, GtkWindow *window)
-{
-	++addEntry;
-	++window;
-}
-
-
 /**Finds the child of the widget parent that has the name defined as the 
 *  second parameter recursively. This function can be used to search the whole
 *  programm.
@@ -26,7 +19,7 @@ GtkWidget *find_child(GtkWidget* parent, const char* name)
 			children = g_list_next(children);
 		}
 
-	} else if (GTK_IS_BIN(parent)) {
+	} else if (GTK_IS_BIN(parent)){
 		find_child(gtk_bin_get_child(GTK_BIN(parent)), name);
 	}
 
@@ -35,6 +28,19 @@ GtkWidget *find_child(GtkWidget* parent, const char* name)
 	}
 
 	return NULL;
+}
+
+
+/**This function gets the needed object to add a todo entry and then calls
+*  the other functions which handel the user input and the entry popup.
+*/
+void add_todo(GtkWidget *addEntry, GtkWindow *window)
+{
+	GtkNotebook *mainNb = GTK_NOTEBOOK(find_child(GTK_WIDGET(window), "mainNb"));
+
+	char pageBoxName[20];
+	sprintf(pageBoxName, "pageBox_on_page_%d", gtk_notebook_get_current_page(mainNb));
+	GtkBox *pageBox = GTK_BOX(find_child(GTK_WIDGET(mainNb), pageBoxName));
 }
 
 
@@ -47,7 +53,7 @@ void add_page_todays_date(GtkNotebook *mainNb)
 {
 	GtkBox *pageBox = GTK_BOX(gtk_box_new(GTK_ORIENTATION_VERTICAL, 0));
 	char pageBoxName[20];
-	sprintf(pageBoxName, "pageBox_on_page_%d", gtk_notebook_get_current_page(mainNb));
+	strcpy(pageBoxName, "pageBox_on_page_0");
 	gtk_widget_set_name(GTK_WIDGET(pageBox), pageBoxName);
 
 	GtkWidget *label;
@@ -113,7 +119,7 @@ int main(int argc, char *argv[])
 
 	GtkWindow *window = NULL;
 	window = create_app(window);
-	
+
 	gtk_widget_show_all(GTK_WIDGET(window));                
 	gtk_main();
 
