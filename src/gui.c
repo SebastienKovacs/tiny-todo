@@ -3,6 +3,34 @@
 #include "postgres.h"
 
 
+/**Finds the child of the widget parent that has the name defined as the 
+*  second parameter recursively. This function can be used to search the whole
+*  programm.
+*/
+GtkWidget *find_child(GtkWidget* parent, const char* name)
+{
+	if (GTK_IS_CONTAINER(parent)){
+		GList *children = gtk_container_get_children(GTK_CONTAINER(parent));
+
+		while (children != NULL){
+			if (find_child(children->data, name)){
+				return find_child(children->data, name);
+			}
+			children = g_list_next(children);
+		}
+
+	} else if (GTK_IS_BIN(parent)) {
+		find_child(gtk_bin_get_child(GTK_BIN(parent)), name);
+	}
+
+	if (!strcmp(gtk_widget_get_name(parent), name)){
+		return parent;
+	}
+
+	return NULL;
+}
+
+
 /**Creates a tab in mainNb with the tasks for the current day. Right 
 *  now it really only takes the todos for the 9th of july because
 *  the function to create new psql tables if there are no entries for 
@@ -34,12 +62,16 @@ void add_page_todays_date(GtkNotebook *mainNb)
 GtkNotebook *create_notebook(GtkBuilder *builder)
 {
 	GtkNotebook *mainNb = GTK_NOTEBOOK(gtk_notebook_new());
+	gtk_widget_set_name(GTK_WIDGET(mainNb), "mainNb");
 	gtk_notebook_set_scrollable(mainNb, TRUE);
 	
 	GtkBox *mainBox = GTK_BOX(gtk_builder_get_object(builder, "main_box"));
 	gtk_box_pack_start(mainBox, GTK_WIDGET(mainNb), FALSE, FALSE, 0);
 
 	add_page_todays_date(mainNb);
+	if (find_child(GTK_WIDGET(mainBox), "add_entry") == NULL){
+		printf("null\n");
+	}
 
 	return mainNb;
 }
