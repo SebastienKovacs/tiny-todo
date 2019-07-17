@@ -3,6 +3,13 @@
 #include "postgres.h"
 
 
+void add_todo(GtkWidget *addEntry, GtkWindow *window)
+{
+	++addEntry;
+	++window;
+}
+
+
 /**Finds the child of the widget parent that has the name defined as the 
 *  second parameter recursively. This function can be used to search the whole
 *  programm.
@@ -39,6 +46,10 @@ GtkWidget *find_child(GtkWidget* parent, const char* name)
 void add_page_todays_date(GtkNotebook *mainNb)
 {
 	GtkBox *pageBox = GTK_BOX(gtk_box_new(GTK_ORIENTATION_VERTICAL, 0));
+	char pageBoxName[20];
+	sprintf(pageBoxName, "pageBox_on_page_%d", gtk_notebook_get_current_page(mainNb));
+	gtk_widget_set_name(GTK_WIDGET(pageBox), pageBoxName);
+
 	GtkWidget *label;
 	char *date = date_as_str();
 	char ***data = get_data(date);
@@ -69,10 +80,7 @@ GtkNotebook *create_notebook(GtkBuilder *builder)
 	gtk_box_pack_start(mainBox, GTK_WIDGET(mainNb), FALSE, FALSE, 0);
 
 	add_page_todays_date(mainNb);
-	if (find_child(GTK_WIDGET(mainBox), "add_entry") == NULL){
-		printf("null\n");
-	}
-
+	
 	return mainNb;
 }
 

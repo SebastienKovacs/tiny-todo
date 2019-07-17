@@ -20,7 +20,7 @@ DEBUG = -g
 ERR = -Wall -Wextra -pedantic
 CFLAGS = $(DEBUG) $(ERR)
 
-GTK = `pkg-config --cflags gtk+-3.0` `pkg-config --libs gtk+-3.0`
+GTK = `pkg-config --cflags gtk+-3.0` `pkg-config --libs gtk+-3.0` -rdynamic
 PSQL = -I/usr/include/postgresql -L/usr/lib/postgresql/9.6/lib -lpq
 LIBS = $(GTK) $(PSQL)
 
