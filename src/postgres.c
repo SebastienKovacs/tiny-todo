@@ -119,8 +119,8 @@ char ***get_data(char *date)
 	PGconn *conn = connect_to_db();
 	char *query = make_sql_query(date);
 	PGresult *res = PQexec(conn, query);
-	
-	if (PQresultStatus(res) != PGRES_COMMAND_OK){
+
+	if (PQresultStatus(res) == PGRES_FATAL_ERROR){
 		printf("%d\n", PQresultStatus(res));
 		create_table(conn, date);
 		res = PQexec(conn, query);
