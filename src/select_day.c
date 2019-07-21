@@ -25,3 +25,17 @@ char *date_as_str()
 
 	return date;
 }
+
+
+char *pretty_date_as_str(char *date)
+{
+	char *tmp;
+	char *prettyDate = malloc (strlen(date));
+	strcpy(prettyDate, date);
+
+	while ((tmp = strchr(prettyDate, 95)) != NULL){
+		*tmp = 32;
+	}
+
+	return prettyDate;
+}

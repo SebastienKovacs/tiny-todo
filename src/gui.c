@@ -58,6 +58,7 @@ void add_page_todays_date(GtkNotebook *mainNb)
 
 	GtkWidget *label;
 	char *date = date_as_str();
+	char *prettyDate = pretty_date_as_str(date);
 	char ***data = get_data(date);
 
 	int rows = get_rows(NULL, date);
@@ -65,9 +66,12 @@ void add_page_todays_date(GtkNotebook *mainNb)
 	for (int i = 0; i < rows; ++i){
 		label = gtk_label_new(data[i][0]);
 		gtk_box_pack_start(pageBox, label, FALSE, FALSE, 2);
+		g_object_unref(label);
 	}
 
-	gtk_notebook_append_page(mainNb, GTK_WIDGET(pageBox), gtk_label_new(date));
+	gtk_notebook_append_page(mainNb, GTK_WIDGET(pageBox), gtk_label_new(prettyDate));
+	free(date); 
+	free(prettyDate);
 }
 
 
