@@ -9,6 +9,43 @@
       <node id="8">
         <label>libpq-fe.h</label>
       </node>
+      <node id="7">
+        <label>postgres.h</label>
+        <link refid="postgres_8h"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="8" relation="include">
+        </childnode>
+      </node>
+      <node id="4">
+        <label>stdlib.h</label>
+      </node>
+      <node id="0">
+        <label>src/gui.c</label>
+        <link refid="gui_8c"/>
+        <childnode refid="1" relation="include">
+        </childnode>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+      </node>
+      <node id="1">
+        <label>gtk/gtk.h</label>
+      </node>
+      <node id="6">
+        <label>string.h</label>
+      </node>
+      <node id="5">
+        <label>time.h</label>
+      </node>
+      <node id="3">
+        <label>stdio.h</label>
+      </node>
       <node id="2">
         <label>select_day.h</label>
         <link refid="select__day_8h"/>
@@ -18,46 +55,53 @@
         </childnode>
         <childnode refid="5" relation="include">
         </childnode>
-      </node>
-      <node id="4">
-        <label>stdlib.h</label>
-      </node>
-      <node id="1">
-        <label>gtk/gtk.h</label>
-      </node>
-      <node id="7">
-        <label>string.h</label>
-      </node>
-      <node id="6">
-        <label>postgres.h</label>
-        <link refid="postgres_8h"/>
-        <childnode refid="3" relation="include">
-        </childnode>
-        <childnode refid="4" relation="include">
-        </childnode>
-        <childnode refid="7" relation="include">
-        </childnode>
-        <childnode refid="8" relation="include">
-        </childnode>
-      </node>
-      <node id="5">
-        <label>time.h</label>
-      </node>
-      <node id="0">
-        <label>src/gui.c</label>
-        <link refid="gui_8c"/>
-        <childnode refid="1" relation="include">
-        </childnode>
-        <childnode refid="2" relation="include">
-        </childnode>
         <childnode refid="6" relation="include">
         </childnode>
       </node>
-      <node id="3">
-        <label>stdio.h</label>
-      </node>
     </incdepgraph>
       <sectiondef kind="func">
+      <memberdef kind="function" id="gui_8c_1a05b8a89ce781f0489f1631e26c5b0329" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>GtkWidget *</type>
+        <definition>GtkWidget* find_child</definition>
+        <argsstring>(GtkWidget *parent, const char *name)</argsstring>
+        <name>find_child</name>
+        <param>
+          <type>GtkWidget *</type>
+          <declname>parent</declname>
+        </param>
+        <param>
+          <type>const char *</type>
+          <declname>name</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Finds the child of the widget parent that has the name defined as the second parameter recursively. This function can be used to search the whole programm. </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui.c" line="10" column="1" bodyfile="src/gui.c" bodystart="10" bodyend="31"/>
+      </memberdef>
+      <memberdef kind="function" id="gui_8c_1afa0388263a0600bf5d9e8380f7905ba0" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void add_todo</definition>
+        <argsstring>(GtkWidget *addEntry, GtkWindow *window)</argsstring>
+        <name>add_todo</name>
+        <param>
+          <type>GtkWidget *</type>
+          <declname>addEntry</declname>
+        </param>
+        <param>
+          <type>GtkWindow *</type>
+          <declname>window</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>This function gets the needed object to add a todo entry and then calls the other functions which handel the user input and the entry popup. This function is not being called anywhere in this code but there is a callback signal for the &quot;+&quot; button defined in glade/tiny-todo.glade. </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui.c" line="39" column="1" bodyfile="src/gui.c" bodystart="39" bodyend="48"/>
+      </memberdef>
       <memberdef kind="function" id="gui_8c_1a59b418a9aae9f2e2857f4a43adbefe16" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
         <definition>void add_page_todays_date</definition>
@@ -73,7 +117,7 @@
 <para>Creates a tab in mainNb with the tasks for the current day. Right now it really only takes the todos for the 9th of july because the function to create new psql tables if there are no entries for a date isn&apos;t done yet. </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="src/gui.c" line="11" column="1" bodyfile="src/gui.c" bodystart="11" bodyend="25"/>
+        <location file="src/gui.c" line="56" column="1" bodyfile="src/gui.c" bodystart="56" bodyend="79"/>
       </memberdef>
       <memberdef kind="function" id="gui_8c_1af5ff0123b7443cd1106720cbc744fdb6" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>GtkNotebook *</type>
@@ -90,7 +134,7 @@
 <para>Creates a GtkNotebook, adds it to a GtkBox and then calls <ref refid="gui_8c_1a59b418a9aae9f2e2857f4a43adbefe16" kindref="member">add_page_todays_date()</ref> to fill it with some content. Maybe in the future the builder parameter will be removed since only makes me save two or three lines of code. </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="src/gui.c" line="33" column="1" bodyfile="src/gui.c" bodystart="33" bodyend="44"/>
+        <location file="src/gui.c" line="87" column="1" bodyfile="src/gui.c" bodystart="87" bodyend="99"/>
       </memberdef>
       <memberdef kind="function" id="gui_8c_1aba76b13326477ee2a3456864098f992a" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>GtkWindow *</type>
@@ -107,7 +151,7 @@
 <para>Initializes the main componenets like builder or the root widget, in this case the GtkWindow main_window. Calls <ref refid="gui_8c_1af5ff0123b7443cd1106720cbc744fdb6" kindref="member">create_notebook()</ref>. </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="src/gui.c" line="50" column="1" bodyfile="src/gui.c" bodystart="50" bodyend="64"/>
+        <location file="src/gui.c" line="105" column="1" bodyfile="src/gui.c" bodystart="105" bodyend="119"/>
       </memberdef>
       <memberdef kind="function" id="gui_8c_1a0ddf1224851353fc92bfbff6f499fa97" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>int</type>
@@ -129,7 +173,7 @@
 <para>Just the entry point of the programm, nothing special happening here. </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="src/gui.c" line="69" column="1" bodyfile="src/gui.c" bodystart="69" bodyend="80"/>
+        <location file="src/gui.c" line="124" column="1" bodyfile="src/gui.c" bodystart="124" bodyend="135"/>
       </memberdef>
       </sectiondef>
     <briefdescription>
@@ -142,66 +186,112 @@
 <codeline lineno="3"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="postgres_8h" kindref="compound">postgres.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
 <codeline lineno="4"><highlight class="normal"></highlight></codeline>
 <codeline lineno="5"><highlight class="normal"></highlight></codeline>
-<codeline lineno="11" refid="gui_8c_1a59b418a9aae9f2e2857f4a43adbefe16" refkind="member"><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="gui_8c_1a59b418a9aae9f2e2857f4a43adbefe16" kindref="member">add_page_todays_date</ref>(GtkNotebook<sp/>*mainNb)</highlight></codeline>
-<codeline lineno="12"><highlight class="normal">{</highlight></codeline>
-<codeline lineno="13"><highlight class="normal"><sp/><sp/><sp/><sp/>GtkBox<sp/>*pageBox<sp/>=<sp/>GTK_BOX(gtk_box_new(GTK_ORIENTATION_VERTICAL,<sp/>0));</highlight></codeline>
-<codeline lineno="14"><highlight class="normal"><sp/><sp/><sp/><sp/>GtkWidget<sp/>*label;</highlight></codeline>
-<codeline lineno="15"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>***data<sp/>=<sp/><ref refid="postgres_8c_1a0fe4bf1274aa2885b4f2f05722102b8d" kindref="member">get_data</ref>(</highlight><highlight class="stringliteral">&quot;_2019_7_9&quot;</highlight><highlight class="normal">);</highlight></codeline>
-<codeline lineno="16"><highlight class="normal"></highlight></codeline>
-<codeline lineno="17"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>rows<sp/>=<sp/><ref refid="postgres_8c_1a2ebb76a0d0bd2ef4e97f7ffab04557ef" kindref="member">get_rows</ref>(NULL,<sp/></highlight><highlight class="stringliteral">&quot;_2019_7_9&quot;</highlight><highlight class="normal">);</highlight></codeline>
-<codeline lineno="18"><highlight class="normal"></highlight></codeline>
-<codeline lineno="19"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>i<sp/>=<sp/>0;<sp/>i<sp/>&lt;=<sp/>rows;<sp/>++i){</highlight></codeline>
-<codeline lineno="20"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>label<sp/>=<sp/>gtk_label_new(data[i][0]);</highlight></codeline>
-<codeline lineno="21"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>gtk_box_pack_start(pageBox,<sp/>label,<sp/>FALSE,<sp/>FALSE,<sp/>2);</highlight></codeline>
-<codeline lineno="22"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
-<codeline lineno="23"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
-<codeline lineno="24"><highlight class="normal"><sp/><sp/><sp/><sp/>gtk_notebook_append_page(mainNb,<sp/>GTK_WIDGET(pageBox),<sp/>gtk_label_new(</highlight><highlight class="stringliteral">&quot;_2019_7_9&quot;</highlight><highlight class="normal">));</highlight></codeline>
-<codeline lineno="25"><highlight class="normal">}</highlight></codeline>
-<codeline lineno="26"><highlight class="normal"></highlight></codeline>
-<codeline lineno="27"><highlight class="normal"></highlight></codeline>
-<codeline lineno="33" refid="gui_8c_1af5ff0123b7443cd1106720cbc744fdb6" refkind="member"><highlight class="normal">GtkNotebook<sp/>*<ref refid="gui_8c_1af5ff0123b7443cd1106720cbc744fdb6" kindref="member">create_notebook</ref>(GtkBuilder<sp/>*builder)</highlight></codeline>
-<codeline lineno="34"><highlight class="normal">{</highlight></codeline>
-<codeline lineno="35"><highlight class="normal"><sp/><sp/><sp/><sp/>GtkNotebook<sp/>*mainNb<sp/>=<sp/>GTK_NOTEBOOK(gtk_notebook_new());</highlight></codeline>
-<codeline lineno="36"><highlight class="normal"><sp/><sp/><sp/><sp/>gtk_notebook_set_scrollable(mainNb,<sp/>TRUE);</highlight></codeline>
-<codeline lineno="37"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
-<codeline lineno="38"><highlight class="normal"><sp/><sp/><sp/><sp/>GtkBox<sp/>*mainBox<sp/>=<sp/>GTK_BOX(gtk_builder_get_object(builder,<sp/></highlight><highlight class="stringliteral">&quot;main_box&quot;</highlight><highlight class="normal">));</highlight></codeline>
-<codeline lineno="39"><highlight class="normal"><sp/><sp/><sp/><sp/>gtk_box_pack_start(mainBox,<sp/>GTK_WIDGET(mainNb),<sp/>FALSE,<sp/>FALSE,<sp/>0);</highlight></codeline>
-<codeline lineno="40"><highlight class="normal"></highlight></codeline>
-<codeline lineno="41"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="gui_8c_1a59b418a9aae9f2e2857f4a43adbefe16" kindref="member">add_page_todays_date</ref>(mainNb);</highlight></codeline>
+<codeline lineno="10" refid="gui_8c_1a05b8a89ce781f0489f1631e26c5b0329" refkind="member"><highlight class="normal">GtkWidget<sp/>*<ref refid="gui_8c_1a05b8a89ce781f0489f1631e26c5b0329" kindref="member">find_child</ref>(GtkWidget*<sp/>parent,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal">*<sp/>name)</highlight></codeline>
+<codeline lineno="11"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="12"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(GTK_IS_CONTAINER(parent)){</highlight></codeline>
+<codeline lineno="13"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>GList<sp/>*children<sp/>=<sp/>gtk_container_get_children(GTK_CONTAINER(parent));</highlight></codeline>
+<codeline lineno="14"><highlight class="normal"></highlight></codeline>
+<codeline lineno="15"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">while</highlight><highlight class="normal"><sp/>(children<sp/>!=<sp/>NULL){</highlight></codeline>
+<codeline lineno="16"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(<ref refid="gui_8c_1a05b8a89ce781f0489f1631e26c5b0329" kindref="member">find_child</ref>(children-&gt;data,<sp/>name)){</highlight></codeline>
+<codeline lineno="17"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/><ref refid="gui_8c_1a05b8a89ce781f0489f1631e26c5b0329" kindref="member">find_child</ref>(children-&gt;data,<sp/>name);</highlight></codeline>
+<codeline lineno="18"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="19"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>children<sp/>=<sp/>g_list_next(children);</highlight></codeline>
+<codeline lineno="20"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="21"><highlight class="normal"></highlight></codeline>
+<codeline lineno="22"><highlight class="normal"><sp/><sp/><sp/><sp/>}<sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(GTK_IS_BIN(parent)){</highlight></codeline>
+<codeline lineno="23"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="gui_8c_1a05b8a89ce781f0489f1631e26c5b0329" kindref="member">find_child</ref>(gtk_bin_get_child(GTK_BIN(parent)),<sp/>name);</highlight></codeline>
+<codeline lineno="24"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="25"><highlight class="normal"></highlight></codeline>
+<codeline lineno="26"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(!strcmp(gtk_widget_get_name(parent),<sp/>name)){</highlight></codeline>
+<codeline lineno="27"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>parent;</highlight></codeline>
+<codeline lineno="28"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="29"><highlight class="normal"></highlight></codeline>
+<codeline lineno="30"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>NULL;</highlight></codeline>
+<codeline lineno="31"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="32"><highlight class="normal"></highlight></codeline>
+<codeline lineno="33"><highlight class="normal"></highlight></codeline>
+<codeline lineno="39" refid="gui_8c_1afa0388263a0600bf5d9e8380f7905ba0" refkind="member"><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="gui_8c_1afa0388263a0600bf5d9e8380f7905ba0" kindref="member">add_todo</ref>(GtkWidget<sp/>*addEntry,<sp/>GtkWindow<sp/>*window)</highlight></codeline>
+<codeline lineno="40"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="41"><highlight class="normal"><sp/><sp/><sp/><sp/>printf(</highlight><highlight class="stringliteral">&quot;add_todo\n&quot;</highlight><highlight class="normal">);</highlight></codeline>
 <codeline lineno="42"><highlight class="normal"></highlight></codeline>
-<codeline lineno="43"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>mainNb;</highlight></codeline>
-<codeline lineno="44"><highlight class="normal">}</highlight></codeline>
-<codeline lineno="45"><highlight class="normal"></highlight></codeline>
-<codeline lineno="46"><highlight class="normal"></highlight></codeline>
-<codeline lineno="50" refid="gui_8c_1aba76b13326477ee2a3456864098f992a" refkind="member"><highlight class="normal">GtkWindow<sp/>*<ref refid="gui_8c_1aba76b13326477ee2a3456864098f992a" kindref="member">create_app</ref>(GtkWindow<sp/>*window)</highlight></codeline>
-<codeline lineno="51"><highlight class="normal">{</highlight></codeline>
-<codeline lineno="52"><highlight class="normal"><sp/><sp/><sp/><sp/>GtkBuilder<sp/>*builder<sp/>=<sp/>gtk_builder_new();</highlight></codeline>
-<codeline lineno="53"><highlight class="normal"><sp/><sp/><sp/><sp/>gtk_builder_add_from_file<sp/>(builder,<sp/></highlight><highlight class="stringliteral">&quot;src/glade/tiny-todo.glade&quot;</highlight><highlight class="normal">,<sp/>NULL);</highlight></codeline>
-<codeline lineno="54"><highlight class="normal"><sp/><sp/><sp/><sp/>gtk_builder_connect_signals(builder,<sp/>NULL);<sp/></highlight></codeline>
-<codeline lineno="55"><highlight class="normal"></highlight></codeline>
-<codeline lineno="56"><highlight class="normal"><sp/><sp/><sp/><sp/>window<sp/>=<sp/>GTK_WINDOW(gtk_builder_get_object(builder,<sp/></highlight><highlight class="stringliteral">&quot;main_window&quot;</highlight><highlight class="normal">));</highlight></codeline>
-<codeline lineno="57"><highlight class="normal"><sp/><sp/><sp/><sp/>gtk_window_set_title(window,<sp/></highlight><highlight class="stringliteral">&quot;tiny-todo&quot;</highlight><highlight class="normal">);</highlight></codeline>
-<codeline lineno="58"><highlight class="normal"></highlight></codeline>
-<codeline lineno="59"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="gui_8c_1af5ff0123b7443cd1106720cbc744fdb6" kindref="member">create_notebook</ref>(builder);</highlight></codeline>
-<codeline lineno="60"><highlight class="normal"></highlight></codeline>
-<codeline lineno="61"><highlight class="normal"><sp/><sp/><sp/><sp/>g_object_unref(builder);</highlight></codeline>
+<codeline lineno="43"><highlight class="normal"><sp/><sp/><sp/><sp/>GtkNotebook<sp/>*mainNb<sp/>=<sp/>GTK_NOTEBOOK(<ref refid="gui_8c_1a05b8a89ce781f0489f1631e26c5b0329" kindref="member">find_child</ref>(GTK_WIDGET(window),<sp/></highlight><highlight class="stringliteral">&quot;mainNb&quot;</highlight><highlight class="normal">));</highlight></codeline>
+<codeline lineno="44"><highlight class="normal"></highlight></codeline>
+<codeline lineno="45"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>pageBoxName[20];</highlight></codeline>
+<codeline lineno="46"><highlight class="normal"><sp/><sp/><sp/><sp/>sprintf(pageBoxName,<sp/></highlight><highlight class="stringliteral">&quot;pageBox_on_page_%d&quot;</highlight><highlight class="normal">,<sp/>gtk_notebook_get_current_page(mainNb));</highlight></codeline>
+<codeline lineno="47"><highlight class="normal"><sp/><sp/><sp/><sp/>GtkBox<sp/>*pageBox<sp/>=<sp/>GTK_BOX(<ref refid="gui_8c_1a05b8a89ce781f0489f1631e26c5b0329" kindref="member">find_child</ref>(GTK_WIDGET(mainNb),<sp/>pageBoxName));</highlight></codeline>
+<codeline lineno="48"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="49"><highlight class="normal"></highlight></codeline>
+<codeline lineno="50"><highlight class="normal"></highlight></codeline>
+<codeline lineno="56" refid="gui_8c_1a59b418a9aae9f2e2857f4a43adbefe16" refkind="member"><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="gui_8c_1a59b418a9aae9f2e2857f4a43adbefe16" kindref="member">add_page_todays_date</ref>(GtkNotebook<sp/>*mainNb)</highlight></codeline>
+<codeline lineno="57"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="58"><highlight class="normal"><sp/><sp/><sp/><sp/>GtkBox<sp/>*pageBox<sp/>=<sp/>GTK_BOX(gtk_box_new(GTK_ORIENTATION_VERTICAL,<sp/>0));</highlight></codeline>
+<codeline lineno="59"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>pageBoxName[20];</highlight></codeline>
+<codeline lineno="60"><highlight class="normal"><sp/><sp/><sp/><sp/>strcpy(pageBoxName,<sp/></highlight><highlight class="stringliteral">&quot;pageBox_on_page_0&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="61"><highlight class="normal"><sp/><sp/><sp/><sp/>gtk_widget_set_name(GTK_WIDGET(pageBox),<sp/>pageBoxName);</highlight></codeline>
 <codeline lineno="62"><highlight class="normal"></highlight></codeline>
-<codeline lineno="63"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>window;</highlight></codeline>
-<codeline lineno="64"><highlight class="normal">}</highlight></codeline>
-<codeline lineno="65"><highlight class="normal"></highlight></codeline>
-<codeline lineno="66"><highlight class="normal"></highlight></codeline>
-<codeline lineno="69" refid="gui_8c_1a0ddf1224851353fc92bfbff6f499fa97" refkind="member"><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="gui_8c_1a0ddf1224851353fc92bfbff6f499fa97" kindref="member">main</ref>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>argc,<sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*argv[])</highlight></codeline>
-<codeline lineno="70"><highlight class="normal">{</highlight></codeline>
-<codeline lineno="71"><highlight class="normal"><sp/><sp/><sp/><sp/>gtk_init(&amp;argc,<sp/>&amp;argv);</highlight></codeline>
-<codeline lineno="72"><highlight class="normal"></highlight></codeline>
-<codeline lineno="73"><highlight class="normal"><sp/><sp/><sp/><sp/>GtkWindow<sp/>*window<sp/>=<sp/>NULL;</highlight></codeline>
-<codeline lineno="74"><highlight class="normal"><sp/><sp/><sp/><sp/>window<sp/>=<sp/><ref refid="gui_8c_1aba76b13326477ee2a3456864098f992a" kindref="member">create_app</ref>(window);</highlight></codeline>
-<codeline lineno="75"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
-<codeline lineno="76"><highlight class="normal"><sp/><sp/><sp/><sp/>gtk_widget_show_all(GTK_WIDGET(window));<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
-<codeline lineno="77"><highlight class="normal"><sp/><sp/><sp/><sp/>gtk_main();</highlight></codeline>
-<codeline lineno="78"><highlight class="normal"></highlight></codeline>
-<codeline lineno="79"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>0;</highlight></codeline>
-<codeline lineno="80"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="63"><highlight class="normal"><sp/><sp/><sp/><sp/>GtkWidget<sp/>*label;</highlight></codeline>
+<codeline lineno="64"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*date<sp/>=<sp/><ref refid="select__day_8c_1a35504e0c76033ef1b134d1c13c289740" kindref="member">date_as_str</ref>();</highlight></codeline>
+<codeline lineno="65"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*prettyDate<sp/>=<sp/><ref refid="select__day_8c_1a179128888cbded7bc20096a3c4f6f8a1" kindref="member">pretty_date_as_str</ref>(date);</highlight></codeline>
+<codeline lineno="66"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>***data<sp/>=<sp/><ref refid="postgres_8c_1a0fe4bf1274aa2885b4f2f05722102b8d" kindref="member">get_data</ref>(date);</highlight></codeline>
+<codeline lineno="67"><highlight class="normal"></highlight></codeline>
+<codeline lineno="68"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>rows<sp/>=<sp/><ref refid="postgres_8c_1a2ebb76a0d0bd2ef4e97f7ffab04557ef" kindref="member">get_rows</ref>(NULL,<sp/>date);</highlight></codeline>
+<codeline lineno="69"><highlight class="normal"></highlight></codeline>
+<codeline lineno="70"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>i<sp/>=<sp/>0;<sp/>i<sp/>&lt;<sp/>rows;<sp/>++i){</highlight></codeline>
+<codeline lineno="71"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>label<sp/>=<sp/>gtk_label_new(data[i][0]);</highlight></codeline>
+<codeline lineno="72"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>gtk_box_pack_start(pageBox,<sp/>label,<sp/>FALSE,<sp/>FALSE,<sp/>2);</highlight></codeline>
+<codeline lineno="73"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>g_object_unref(label);</highlight></codeline>
+<codeline lineno="74"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="75"><highlight class="normal"></highlight></codeline>
+<codeline lineno="76"><highlight class="normal"><sp/><sp/><sp/><sp/>gtk_notebook_append_page(mainNb,<sp/>GTK_WIDGET(pageBox),<sp/>gtk_label_new(prettyDate));</highlight></codeline>
+<codeline lineno="77"><highlight class="normal"><sp/><sp/><sp/><sp/>free(date);<sp/></highlight></codeline>
+<codeline lineno="78"><highlight class="normal"><sp/><sp/><sp/><sp/>free(prettyDate);</highlight></codeline>
+<codeline lineno="79"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="80"><highlight class="normal"></highlight></codeline>
+<codeline lineno="81"><highlight class="normal"></highlight></codeline>
+<codeline lineno="87" refid="gui_8c_1af5ff0123b7443cd1106720cbc744fdb6" refkind="member"><highlight class="normal">GtkNotebook<sp/>*<ref refid="gui_8c_1af5ff0123b7443cd1106720cbc744fdb6" kindref="member">create_notebook</ref>(GtkBuilder<sp/>*builder)</highlight></codeline>
+<codeline lineno="88"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="89"><highlight class="normal"><sp/><sp/><sp/><sp/>GtkNotebook<sp/>*mainNb<sp/>=<sp/>GTK_NOTEBOOK(gtk_notebook_new());</highlight></codeline>
+<codeline lineno="90"><highlight class="normal"><sp/><sp/><sp/><sp/>gtk_widget_set_name(GTK_WIDGET(mainNb),<sp/></highlight><highlight class="stringliteral">&quot;mainNb&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="91"><highlight class="normal"><sp/><sp/><sp/><sp/>gtk_notebook_set_scrollable(mainNb,<sp/>TRUE);</highlight></codeline>
+<codeline lineno="92"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="93"><highlight class="normal"><sp/><sp/><sp/><sp/>GtkBox<sp/>*mainBox<sp/>=<sp/>GTK_BOX(gtk_builder_get_object(builder,<sp/></highlight><highlight class="stringliteral">&quot;main_box&quot;</highlight><highlight class="normal">));</highlight></codeline>
+<codeline lineno="94"><highlight class="normal"><sp/><sp/><sp/><sp/>gtk_box_pack_start(mainBox,<sp/>GTK_WIDGET(mainNb),<sp/>FALSE,<sp/>FALSE,<sp/>0);</highlight></codeline>
+<codeline lineno="95"><highlight class="normal"></highlight></codeline>
+<codeline lineno="96"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="gui_8c_1a59b418a9aae9f2e2857f4a43adbefe16" kindref="member">add_page_todays_date</ref>(mainNb);</highlight></codeline>
+<codeline lineno="97"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="98"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>mainNb;</highlight></codeline>
+<codeline lineno="99"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="100"><highlight class="normal"></highlight></codeline>
+<codeline lineno="101"><highlight class="normal"></highlight></codeline>
+<codeline lineno="105" refid="gui_8c_1aba76b13326477ee2a3456864098f992a" refkind="member"><highlight class="normal">GtkWindow<sp/>*<ref refid="gui_8c_1aba76b13326477ee2a3456864098f992a" kindref="member">create_app</ref>(GtkWindow<sp/>*window)</highlight></codeline>
+<codeline lineno="106"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="107"><highlight class="normal"><sp/><sp/><sp/><sp/>GtkBuilder<sp/>*builder<sp/>=<sp/>gtk_builder_new();</highlight></codeline>
+<codeline lineno="108"><highlight class="normal"><sp/><sp/><sp/><sp/>gtk_builder_add_from_file<sp/>(builder,<sp/></highlight><highlight class="stringliteral">&quot;src/glade/tiny-todo.glade&quot;</highlight><highlight class="normal">,<sp/>NULL);</highlight></codeline>
+<codeline lineno="109"><highlight class="normal"><sp/><sp/><sp/><sp/>gtk_builder_connect_signals(builder,<sp/>NULL);<sp/></highlight></codeline>
+<codeline lineno="110"><highlight class="normal"></highlight></codeline>
+<codeline lineno="111"><highlight class="normal"><sp/><sp/><sp/><sp/>window<sp/>=<sp/>GTK_WINDOW(gtk_builder_get_object(builder,<sp/></highlight><highlight class="stringliteral">&quot;main_window&quot;</highlight><highlight class="normal">));</highlight></codeline>
+<codeline lineno="112"><highlight class="normal"><sp/><sp/><sp/><sp/>gtk_window_set_title(window,<sp/></highlight><highlight class="stringliteral">&quot;tiny-todo&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="113"><highlight class="normal"></highlight></codeline>
+<codeline lineno="114"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="gui_8c_1af5ff0123b7443cd1106720cbc744fdb6" kindref="member">create_notebook</ref>(builder);</highlight></codeline>
+<codeline lineno="115"><highlight class="normal"></highlight></codeline>
+<codeline lineno="116"><highlight class="normal"><sp/><sp/><sp/><sp/>g_object_unref(builder);</highlight></codeline>
+<codeline lineno="117"><highlight class="normal"></highlight></codeline>
+<codeline lineno="118"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>window;</highlight></codeline>
+<codeline lineno="119"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="120"><highlight class="normal"></highlight></codeline>
+<codeline lineno="121"><highlight class="normal"></highlight></codeline>
+<codeline lineno="124" refid="gui_8c_1a0ddf1224851353fc92bfbff6f499fa97" refkind="member"><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="gui_8c_1a0ddf1224851353fc92bfbff6f499fa97" kindref="member">main</ref>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>argc,<sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*argv[])</highlight></codeline>
+<codeline lineno="125"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="126"><highlight class="normal"><sp/><sp/><sp/><sp/>gtk_init(&amp;argc,<sp/>&amp;argv);</highlight></codeline>
+<codeline lineno="127"><highlight class="normal"></highlight></codeline>
+<codeline lineno="128"><highlight class="normal"><sp/><sp/><sp/><sp/>GtkWindow<sp/>*window<sp/>=<sp/>NULL;</highlight></codeline>
+<codeline lineno="129"><highlight class="normal"><sp/><sp/><sp/><sp/>window<sp/>=<sp/><ref refid="gui_8c_1aba76b13326477ee2a3456864098f992a" kindref="member">create_app</ref>(window);</highlight></codeline>
+<codeline lineno="130"><highlight class="normal"></highlight></codeline>
+<codeline lineno="131"><highlight class="normal"><sp/><sp/><sp/><sp/>gtk_widget_show_all(GTK_WIDGET(window));<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="132"><highlight class="normal"><sp/><sp/><sp/><sp/>gtk_main();</highlight></codeline>
+<codeline lineno="133"><highlight class="normal"></highlight></codeline>
+<codeline lineno="134"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>0;</highlight></codeline>
+<codeline lineno="135"><highlight class="normal">}</highlight></codeline>
     </programlisting>
     <location file="src/gui.c"/>
   </compounddef>

@@ -1,4 +1,4 @@
-.TH "src/gui.c" 3 "Tue Jul 16 2019" "Version 0.1" "tiny-todo" \" -*- nroff -*-
+.TH "src/gui.c" 3 "Wed Jul 24 2019" "Version 0.1" "tiny-todo" \" -*- nroff -*-
 .ad l
 .nh
 .SH NAME
@@ -17,6 +17,12 @@ src/gui.c
 
 .in +1c
 .ti -1c
+.RI "GtkWidget * \fBfind_child\fP (GtkWidget *parent, const char *name)"
+.br
+.ti -1c
+.RI "void \fBadd_todo\fP (GtkWidget *addEntry, GtkWindow *window)"
+.br
+.ti -1c
 .RI "void \fBadd_page_todays_date\fP (GtkNotebook *mainNb)"
 .br
 .ti -1c
@@ -34,19 +40,27 @@ src/gui.c
 .SS "void add_page_todays_date (GtkNotebook * mainNb)"
 Creates a tab in mainNb with the tasks for the current day\&. Right now it really only takes the todos for the 9th of july because the function to create new psql tables if there are no entries for a date isn't done yet\&. 
 .PP
-Definition at line 11 of file gui\&.c\&.
+Definition at line 56 of file gui\&.c\&.
+.SS "void add_todo (GtkWidget * addEntry, GtkWindow * window)"
+This function gets the needed object to add a todo entry and then calls the other functions which handel the user input and the entry popup\&. This function is not being called anywhere in this code but there is a callback signal for the '+' button defined in glade/tiny-todo\&.glade\&. 
+.PP
+Definition at line 39 of file gui\&.c\&.
 .SS "GtkWindow* create_app (GtkWindow * window)"
 Initializes the main componenets like builder or the root widget, in this case the GtkWindow main_window\&. Calls \fBcreate_notebook()\fP\&. 
 .PP
-Definition at line 50 of file gui\&.c\&.
+Definition at line 105 of file gui\&.c\&.
 .SS "GtkNotebook* create_notebook (GtkBuilder * builder)"
 Creates a GtkNotebook, adds it to a GtkBox and then calls \fBadd_page_todays_date()\fP to fill it with some content\&. Maybe in the future the builder parameter will be removed since only makes me save two or three lines of code\&. 
 .PP
-Definition at line 33 of file gui\&.c\&.
+Definition at line 87 of file gui\&.c\&.
+.SS "GtkWidget* find_child (GtkWidget * parent, const char * name)"
+Finds the child of the widget parent that has the name defined as the second parameter recursively\&. This function can be used to search the whole programm\&. 
+.PP
+Definition at line 10 of file gui\&.c\&.
 .SS "int main (int argc, char * argv[])"
 Just the entry point of the programm, nothing special happening here\&. 
 .PP
-Definition at line 69 of file gui\&.c\&.
+Definition at line 124 of file gui\&.c\&.
 .SH "Author"
 .PP 
 Generated automatically by Doxygen for tiny-todo from the source code\&.

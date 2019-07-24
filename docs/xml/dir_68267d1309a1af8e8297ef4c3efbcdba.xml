@@ -3,6 +3,8 @@
   <compounddef id="dir_68267d1309a1af8e8297ef4c3efbcdba" kind="dir">
     <compoundname>src</compoundname>
     <innerfile refid="gui_8c">gui.c</innerfile>
+    <innerfile refid="popups_8c">popups.c</innerfile>
+    <innerfile refid="popups_8h">popups.h</innerfile>
     <innerfile refid="postgres_8c">postgres.c</innerfile>
     <innerfile refid="postgres_8h">postgres.h</innerfile>
     <innerfile refid="select__day_8c">select_day.c</innerfile>

@@ -1,4 +1,4 @@
-.TH "src/postgres.h" 3 "Tue Jul 16 2019" "Version 0.1" "tiny-todo" \" -*- nroff -*-
+.TH "src/postgres.h" 3 "Wed Jul 24 2019" "Version 0.1" "tiny-todo" \" -*- nroff -*-
 .ad l
 .nh
 .SH NAME
@@ -19,19 +19,10 @@ src/postgres.h
 
 .in +1c
 .ti -1c
-.RI "void \fBstop_connection_db\fP (PGconn *conn, PGresult *res)"
-.br
-.ti -1c
-.RI "PGconn * \fBconnect_to_db\fP ()"
-.br
-.ti -1c
 .RI "int \fBget_rows\fP (PGresult *res, char *date)"
 .br
 .ti -1c
 .RI "int \fBget_columns\fP (PGresult *res, char *date)"
-.br
-.ti -1c
-.RI "char * \fBmake_sql_query\fP (char *date)"
 .br
 .ti -1c
 .RI "char *** \fBget_data\fP (char *date)"
@@ -39,30 +30,18 @@ src/postgres.h
 .in -1c
 .SH "Function Documentation"
 .PP 
-.SS "PGconn* connect_to_db ()"
-Connects to a database\&. The connection string conninfo will later be stored in a config file and be accessed with libconfig\&. 
-.PP
-Definition at line 24 of file postgres\&.c\&.
 .SS "int get_columns (PGresult * res, char * date)"
 Same as above but with columns instead of rows\&. 
 .PP
-Definition at line 66 of file postgres\&.c\&.
+Definition at line 77 of file postgres\&.c\&.
 .SS "char*** get_data (char * date)"
 The big function of this file\&. It takes the whole table out of the db and puts it in this triple char pointer, aka a string table and return it\&. 
 .PP
-Definition at line 103 of file postgres\&.c\&.
+Definition at line 116 of file postgres\&.c\&.
 .SS "int get_rows (PGresult * res, char * date)"
 This function is very usefull for the times you want to do memory allocation for a pointer to fit a part or the whole database in it\&. The function returns the number of rows in a table in a db\&. I use it in the for loops in \fBspecial_allocs\&.c\fP 
 .PP
-Definition at line 44 of file postgres\&.c\&.
-.SS "char* make_sql_query (char * date)"
-Just takes the desired date as a string wich you can get from \fBdate_as_str()\fP in \fBselect_day\&.c\fP and uses it to make an psql query\&. 
-.PP
-Definition at line 90 of file postgres\&.c\&.
-.SS "void stop_connection_db (PGconn * conn, PGresult * res)"
-Closes connection or frees res or both\&. This function can be called with one or both of the arguments being null\&. I wrote it this way so I can call it even when I don't have both conn and res in scope\&. 
-.PP
-Definition at line 10 of file postgres\&.c\&.
+Definition at line 56 of file postgres\&.c\&.
 .SH "Author"
 .PP 
 Generated automatically by Doxygen for tiny-todo from the source code\&.

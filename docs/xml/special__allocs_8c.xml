@@ -4,19 +4,19 @@
     <compoundname>special_allocs.c</compoundname>
     <includes refid="special__allocs_8h" local="yes">special_allocs.h</includes>
     <incdepgraph>
-      <node id="44">
+      <node id="54">
         <label>stdlib.h</label>
       </node>
-      <node id="42">
+      <node id="52">
         <label>src/special_allocs.c</label>
         <link refid="special__allocs_8c"/>
-        <childnode refid="43" relation="include">
+        <childnode refid="53" relation="include">
         </childnode>
       </node>
-      <node id="43">
+      <node id="53">
         <label>special_allocs.h</label>
         <link refid="special__allocs_8h"/>
-        <childnode refid="44" relation="include">
+        <childnode refid="54" relation="include">
         </childnode>
       </node>
     </incdepgraph>

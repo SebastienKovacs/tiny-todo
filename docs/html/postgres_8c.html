@@ -102,40 +102,14 @@ Include dependency graph for postgres.c:</div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:aae4c366a683913f1cf6daf2d34af904c"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="postgres_8c.html#aae4c366a683913f1cf6daf2d34af904c">stop_connection_db</a> (PGconn *conn, PGresult *res)</td></tr>
-<tr class="separator:aae4c366a683913f1cf6daf2d34af904c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:acbd5a8380d5bf96ad26da5f608eea7c3"><td class="memItemLeft" align="right" valign="top">PGconn *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="postgres_8c.html#acbd5a8380d5bf96ad26da5f608eea7c3">connect_to_db</a> ()</td></tr>
-<tr class="separator:acbd5a8380d5bf96ad26da5f608eea7c3"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a2ebb76a0d0bd2ef4e97f7ffab04557ef"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="postgres_8c.html#a2ebb76a0d0bd2ef4e97f7ffab04557ef">get_rows</a> (PGresult *res, char *date)</td></tr>
 <tr class="separator:a2ebb76a0d0bd2ef4e97f7ffab04557ef"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:af2d0925e7afa0b5a71432709b6c4305f"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="postgres_8c.html#af2d0925e7afa0b5a71432709b6c4305f">get_columns</a> (PGresult *res, char *date)</td></tr>
 <tr class="separator:af2d0925e7afa0b5a71432709b6c4305f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a37cb502eb3db86a087c48f34a382d836"><td class="memItemLeft" align="right" valign="top">char *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="postgres_8c.html#a37cb502eb3db86a087c48f34a382d836">make_sql_query</a> (char *date)</td></tr>
-<tr class="separator:a37cb502eb3db86a087c48f34a382d836"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a0fe4bf1274aa2885b4f2f05722102b8d"><td class="memItemLeft" align="right" valign="top">char ***&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="postgres_8c.html#a0fe4bf1274aa2885b4f2f05722102b8d">get_data</a> (char *date)</td></tr>
 <tr class="separator:a0fe4bf1274aa2885b4f2f05722102b8d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Function Documentation</h2>
-<a id="acbd5a8380d5bf96ad26da5f608eea7c3"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#acbd5a8380d5bf96ad26da5f608eea7c3">&#9670;&nbsp;</a></span>connect_to_db()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">PGconn* connect_to_db </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<p>Connects to a database. The connection string conninfo will later be stored in a config file and be accessed with libconfig. </p>
-
-<p class="definition">Definition at line <a class="el" href="postgres_8c_source.html#l00024">24</a> of file <a class="el" href="postgres_8c_source.html">postgres.c</a>.</p>
-
-</div>
-</div>
 <a id="af2d0925e7afa0b5a71432709b6c4305f"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#af2d0925e7afa0b5a71432709b6c4305f">&#9670;&nbsp;</a></span>get_columns()</h2>
 
@@ -163,7 +137,7 @@ Functions</h2></td></tr>
 </div><div class="memdoc">
 <p>Same as above but with columns instead of rows. </p>
 
-<p class="definition">Definition at line <a class="el" href="postgres_8c_source.html#l00066">66</a> of file <a class="el" href="postgres_8c_source.html">postgres.c</a>.</p>
+<p class="definition">Definition at line <a class="el" href="postgres_8c_source.html#l00077">77</a> of file <a class="el" href="postgres_8c_source.html">postgres.c</a>.</p>
 
 </div>
 </div>
@@ -184,7 +158,7 @@ Functions</h2></td></tr>
 </div><div class="memdoc">
 <p>The big function of this file. It takes the whole table out of the db and puts it in this triple char pointer, aka a string table and return it. </p>
 
-<p class="definition">Definition at line <a class="el" href="postgres_8c_source.html#l00103">103</a> of file <a class="el" href="postgres_8c_source.html">postgres.c</a>.</p>
+<p class="definition">Definition at line <a class="el" href="postgres_8c_source.html#l00116">116</a> of file <a class="el" href="postgres_8c_source.html">postgres.c</a>.</p>
 
 </div>
 </div>
@@ -215,59 +189,7 @@ Functions</h2></td></tr>
 </div><div class="memdoc">
 <p>This function is very usefull for the times you want to do memory allocation for a pointer to fit a part or the whole database in it. The function returns the number of rows in a table in a db. I use it in the for loops in <a class="el" href="special__allocs_8c.html">special_allocs.c</a> </p>
 
-<p class="definition">Definition at line <a class="el" href="postgres_8c_source.html#l00044">44</a> of file <a class="el" href="postgres_8c_source.html">postgres.c</a>.</p>
-
-</div>
-</div>
-<a id="a37cb502eb3db86a087c48f34a382d836"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a37cb502eb3db86a087c48f34a382d836">&#9670;&nbsp;</a></span>make_sql_query()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">char* make_sql_query </td>
-          <td>(</td>
-          <td class="paramtype">char *&#160;</td>
-          <td class="paramname"><em>date</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<p>Just takes the desired date as a string wich you can get from <a class="el" href="select__day_8c.html#a35504e0c76033ef1b134d1c13c289740">date_as_str()</a> in <a class="el" href="select__day_8c.html">select_day.c</a> and uses it to make an psql query. </p>
-
-<p class="definition">Definition at line <a class="el" href="postgres_8c_source.html#l00090">90</a> of file <a class="el" href="postgres_8c_source.html">postgres.c</a>.</p>
-
-</div>
-</div>
-<a id="aae4c366a683913f1cf6daf2d34af904c"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aae4c366a683913f1cf6daf2d34af904c">&#9670;&nbsp;</a></span>stop_connection_db()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void stop_connection_db </td>
-          <td>(</td>
-          <td class="paramtype">PGconn *&#160;</td>
-          <td class="paramname"><em>conn</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">PGresult *&#160;</td>
-          <td class="paramname"><em>res</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<p>Closes connection or frees res or both. This function can be called with one or both of the arguments being null. I wrote it this way so I can call it even when I don't have both conn and res in scope. </p>
-
-<p class="definition">Definition at line <a class="el" href="postgres_8c_source.html#l00010">10</a> of file <a class="el" href="postgres_8c_source.html">postgres.c</a>.</p>
+<p class="definition">Definition at line <a class="el" href="postgres_8c_source.html#l00056">56</a> of file <a class="el" href="postgres_8c_source.html">postgres.c</a>.</p>
 
 </div>
 </div>

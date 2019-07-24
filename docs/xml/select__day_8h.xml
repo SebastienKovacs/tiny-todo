@@ -5,52 +5,58 @@
     <includes local="no">stdio.h</includes>
     <includes local="no">stdlib.h</includes>
     <includes local="no">time.h</includes>
+    <includes local="no">string.h</includes>
     <includedby refid="gui_8c" local="yes">src/gui.c</includedby>
     <includedby refid="postgres_8c" local="yes">src/postgres.c</includedby>
     <includedby refid="select__day_8c" local="yes">src/select_day.c</includedby>
     <incdepgraph>
-      <node id="34">
-        <label>src/select_day.h</label>
-        <link refid="select__day_8h"/>
-        <childnode refid="35" relation="include">
-        </childnode>
-        <childnode refid="36" relation="include">
-        </childnode>
-        <childnode refid="37" relation="include">
-        </childnode>
-      </node>
-      <node id="36">
+      <node id="45">
         <label>stdlib.h</label>
       </node>
-      <node id="37">
+      <node id="47">
+        <label>string.h</label>
+      </node>
+      <node id="46">
         <label>time.h</label>
       </node>
-      <node id="35">
+      <node id="44">
         <label>stdio.h</label>
+      </node>
+      <node id="43">
+        <label>src/select_day.h</label>
+        <link refid="select__day_8h"/>
+        <childnode refid="44" relation="include">
+        </childnode>
+        <childnode refid="45" relation="include">
+        </childnode>
+        <childnode refid="46" relation="include">
+        </childnode>
+        <childnode refid="47" relation="include">
+        </childnode>
       </node>
     </incdepgraph>
     <invincdepgraph>
-      <node id="41">
-        <label>src/select_day.c</label>
-        <link refid="select__day_8c"/>
-      </node>
-      <node id="38">
-        <label>src/select_day.h</label>
-        <link refid="select__day_8h"/>
-        <childnode refid="39" relation="include">
-        </childnode>
-        <childnode refid="40" relation="include">
-        </childnode>
-        <childnode refid="41" relation="include">
-        </childnode>
-      </node>
-      <node id="40">
+      <node id="50">
         <label>src/postgres.c</label>
         <link refid="postgres_8c"/>
       </node>
-      <node id="39">
+      <node id="49">
         <label>src/gui.c</label>
         <link refid="gui_8c"/>
+      </node>
+      <node id="51">
+        <label>src/select_day.c</label>
+        <link refid="select__day_8c"/>
+      </node>
+      <node id="48">
+        <label>src/select_day.h</label>
+        <link refid="select__day_8h"/>
+        <childnode refid="49" relation="include">
+        </childnode>
+        <childnode refid="50" relation="include">
+        </childnode>
+        <childnode refid="51" relation="include">
+        </childnode>
       </node>
     </invincdepgraph>
       <sectiondef kind="func">
@@ -65,7 +71,24 @@
 <para>Makes a string out of the current_date struct. This is needed because this string is actually the name of the psql table corresponding to the said date. </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="src/select_day.h" line="8" column="1" bodyfile="src/select_day.c" bodystart="17" bodyend="27"/>
+        <location file="src/select_day.h" line="9" column="1" bodyfile="src/select_day.c" bodystart="17" bodyend="27"/>
+      </memberdef>
+      <memberdef kind="function" id="select__day_8h_1a179128888cbded7bc20096a3c4f6f8a1" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>char *</type>
+        <definition>char* pretty_date_as_str</definition>
+        <argsstring>(char *date)</argsstring>
+        <name>pretty_date_as_str</name>
+        <param>
+          <type>char *</type>
+          <declname>date</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>makes the date string pretty for the user by replacing &quot;_&quot; characters with &quot; &quot;. </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/select_day.h" line="10" column="1" bodyfile="src/select_day.c" bodystart="33" bodyend="44"/>
       </memberdef>
       </sectiondef>
     <briefdescription>
@@ -79,10 +102,12 @@
 <codeline lineno="4"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;stdio.h&gt;</highlight><highlight class="normal"></highlight></codeline>
 <codeline lineno="5"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;stdlib.h&gt;</highlight><highlight class="normal"></highlight></codeline>
 <codeline lineno="6"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;time.h&gt;</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="7"><highlight class="normal"></highlight></codeline>
-<codeline lineno="8"><highlight class="normal"></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*<ref refid="select__day_8h_1a35504e0c76033ef1b134d1c13c289740" kindref="member">date_as_str</ref>();</highlight></codeline>
-<codeline lineno="9"><highlight class="normal"></highlight></codeline>
-<codeline lineno="10"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight></codeline>
+<codeline lineno="7"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;string.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="8"><highlight class="normal"></highlight></codeline>
+<codeline lineno="9"><highlight class="normal"></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*<ref refid="select__day_8h_1a35504e0c76033ef1b134d1c13c289740" kindref="member">date_as_str</ref>();</highlight></codeline>
+<codeline lineno="10"><highlight class="normal"></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*<ref refid="select__day_8h_1a179128888cbded7bc20096a3c4f6f8a1" kindref="member">pretty_date_as_str</ref>(</highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*date);</highlight></codeline>
+<codeline lineno="11"><highlight class="normal"></highlight></codeline>
+<codeline lineno="12"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight></codeline>
     </programlisting>
     <location file="src/select_day.h"/>
   </compounddef>

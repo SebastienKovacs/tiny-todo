@@ -9,84 +9,50 @@
     <includedby refid="gui_8c" local="yes">src/gui.c</includedby>
     <includedby refid="postgres_8c" local="yes">src/postgres.c</includedby>
     <incdepgraph>
-      <node id="24">
+      <node id="32">
         <label>libpq-fe.h</label>
       </node>
-      <node id="22">
-        <label>stdlib.h</label>
-      </node>
-      <node id="23">
-        <label>string.h</label>
-      </node>
-      <node id="20">
+      <node id="28">
         <label>src/postgres.h</label>
         <link refid="postgres_8h"/>
-        <childnode refid="21" relation="include">
+        <childnode refid="29" relation="include">
         </childnode>
-        <childnode refid="22" relation="include">
+        <childnode refid="30" relation="include">
         </childnode>
-        <childnode refid="23" relation="include">
+        <childnode refid="31" relation="include">
         </childnode>
-        <childnode refid="24" relation="include">
+        <childnode refid="32" relation="include">
         </childnode>
       </node>
-      <node id="21">
+      <node id="30">
+        <label>stdlib.h</label>
+      </node>
+      <node id="31">
+        <label>string.h</label>
+      </node>
+      <node id="29">
         <label>stdio.h</label>
       </node>
     </incdepgraph>
     <invincdepgraph>
-      <node id="27">
+      <node id="35">
         <label>src/postgres.c</label>
         <link refid="postgres_8c"/>
       </node>
-      <node id="25">
+      <node id="33">
         <label>src/postgres.h</label>
         <link refid="postgres_8h"/>
-        <childnode refid="26" relation="include">
+        <childnode refid="34" relation="include">
         </childnode>
-        <childnode refid="27" relation="include">
+        <childnode refid="35" relation="include">
         </childnode>
       </node>
-      <node id="26">
+      <node id="34">
         <label>src/gui.c</label>
         <link refid="gui_8c"/>
       </node>
     </invincdepgraph>
       <sectiondef kind="func">
-      <memberdef kind="function" id="postgres_8h_1aae4c366a683913f1cf6daf2d34af904c" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
-        <type>void</type>
-        <definition>void stop_connection_db</definition>
-        <argsstring>(PGconn *conn, PGresult *res)</argsstring>
-        <name>stop_connection_db</name>
-        <param>
-          <type>PGconn *</type>
-          <declname>conn</declname>
-        </param>
-        <param>
-          <type>PGresult *</type>
-          <declname>res</declname>
-        </param>
-        <briefdescription>
-        </briefdescription>
-        <detaileddescription>
-<para>Closes connection or frees res or both. This function can be called with one or both of the arguments being null. I wrote it this way so I can call it even when I don&apos;t have both conn and res in scope. </para>        </detaileddescription>
-        <inbodydescription>
-        </inbodydescription>
-        <location file="src/postgres.h" line="9" column="1" bodyfile="src/postgres.c" bodystart="10" bodyend="18"/>
-      </memberdef>
-      <memberdef kind="function" id="postgres_8h_1acbd5a8380d5bf96ad26da5f608eea7c3" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
-        <type>PGconn *</type>
-        <definition>PGconn* connect_to_db</definition>
-        <argsstring>()</argsstring>
-        <name>connect_to_db</name>
-        <briefdescription>
-        </briefdescription>
-        <detaileddescription>
-<para>Connects to a database. The connection string conninfo will later be stored in a config file and be accessed with libconfig. </para>        </detaileddescription>
-        <inbodydescription>
-        </inbodydescription>
-        <location file="src/postgres.h" line="10" column="1" bodyfile="src/postgres.c" bodystart="24" bodyend="36"/>
-      </memberdef>
       <memberdef kind="function" id="postgres_8h_1a2ebb76a0d0bd2ef4e97f7ffab04557ef" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>int</type>
         <definition>int get_rows</definition>
@@ -106,7 +72,7 @@
 <para>This function is very usefull for the times you want to do memory allocation for a pointer to fit a part or the whole database in it. The function returns the number of rows in a table in a db. I use it in the for loops in <ref refid="special__allocs_8c" kindref="compound">special_allocs.c</ref> </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="src/postgres.h" line="11" column="1" bodyfile="src/postgres.c" bodystart="44" bodyend="61"/>
+        <location file="src/postgres.h" line="9" column="1" bodyfile="src/postgres.c" bodystart="56" bodyend="72"/>
       </memberdef>
       <memberdef kind="function" id="postgres_8h_1af2d0925e7afa0b5a71432709b6c4305f" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>int</type>
@@ -127,24 +93,7 @@
 <para>Same as above but with columns instead of rows. </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="src/postgres.h" line="12" column="1" bodyfile="src/postgres.c" bodystart="66" bodyend="84"/>
-      </memberdef>
-      <memberdef kind="function" id="postgres_8h_1a37cb502eb3db86a087c48f34a382d836" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
-        <type>char *</type>
-        <definition>char* make_sql_query</definition>
-        <argsstring>(char *date)</argsstring>
-        <name>make_sql_query</name>
-        <param>
-          <type>char *</type>
-          <declname>date</declname>
-        </param>
-        <briefdescription>
-        </briefdescription>
-        <detaileddescription>
-<para>Just takes the desired date as a string wich you can get from <ref refid="select__day_8c_1a35504e0c76033ef1b134d1c13c289740" kindref="member">date_as_str()</ref> in <ref refid="select__day_8c" kindref="compound">select_day.c</ref> and uses it to make an psql query. </para>        </detaileddescription>
-        <inbodydescription>
-        </inbodydescription>
-        <location file="src/postgres.h" line="13" column="1" bodyfile="src/postgres.c" bodystart="90" bodyend="96"/>
+        <location file="src/postgres.h" line="10" column="1" bodyfile="src/postgres.c" bodystart="77" bodyend="95"/>
       </memberdef>
       <memberdef kind="function" id="postgres_8h_1a0fe4bf1274aa2885b4f2f05722102b8d" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>char ***</type>
@@ -161,7 +110,7 @@
 <para>The big function of this file. It takes the whole table out of the db and puts it in this triple char pointer, aka a string table and return it. </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="src/postgres.h" line="14" column="1" bodyfile="src/postgres.c" bodystart="103" bodyend="122"/>
+        <location file="src/postgres.h" line="11" column="1" bodyfile="src/postgres.c" bodystart="116" bodyend="140"/>
       </memberdef>
       </sectiondef>
     <briefdescription>
@@ -177,14 +126,11 @@
 <codeline lineno="6"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;string.h&gt;</highlight><highlight class="normal"></highlight></codeline>
 <codeline lineno="7"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;libpq-fe.h&gt;</highlight><highlight class="normal"></highlight></codeline>
 <codeline lineno="8"><highlight class="normal"></highlight></codeline>
-<codeline lineno="9"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="postgres_8h_1aae4c366a683913f1cf6daf2d34af904c" kindref="member">stop_connection_db</ref>(PGconn<sp/>*conn,<sp/>PGresult<sp/>*res);</highlight></codeline>
-<codeline lineno="10"><highlight class="normal">PGconn<sp/>*<ref refid="postgres_8h_1acbd5a8380d5bf96ad26da5f608eea7c3" kindref="member">connect_to_db</ref>();</highlight></codeline>
-<codeline lineno="11"><highlight class="normal"></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="postgres_8h_1a2ebb76a0d0bd2ef4e97f7ffab04557ef" kindref="member">get_rows</ref>(PGresult<sp/>*res,<sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*date);</highlight></codeline>
-<codeline lineno="12"><highlight class="normal"></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="postgres_8h_1af2d0925e7afa0b5a71432709b6c4305f" kindref="member">get_columns</ref>(PGresult<sp/>*res,<sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*date);</highlight></codeline>
-<codeline lineno="13"><highlight class="normal"></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*<ref refid="postgres_8h_1a37cb502eb3db86a087c48f34a382d836" kindref="member">make_sql_query</ref>(</highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*date);</highlight></codeline>
-<codeline lineno="14"><highlight class="normal"></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>***<ref refid="postgres_8h_1a0fe4bf1274aa2885b4f2f05722102b8d" kindref="member">get_data</ref>(</highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*date);</highlight></codeline>
-<codeline lineno="15"><highlight class="normal"></highlight></codeline>
-<codeline lineno="16"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight></codeline>
+<codeline lineno="9"><highlight class="normal"></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="postgres_8h_1a2ebb76a0d0bd2ef4e97f7ffab04557ef" kindref="member">get_rows</ref>(PGresult<sp/>*res,<sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*date);</highlight></codeline>
+<codeline lineno="10"><highlight class="normal"></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="postgres_8h_1af2d0925e7afa0b5a71432709b6c4305f" kindref="member">get_columns</ref>(PGresult<sp/>*res,<sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*date);</highlight></codeline>
+<codeline lineno="11"><highlight class="normal"></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>***<ref refid="postgres_8h_1a0fe4bf1274aa2885b4f2f05722102b8d" kindref="member">get_data</ref>(</highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*date);</highlight></codeline>
+<codeline lineno="12"><highlight class="normal"></highlight></codeline>
+<codeline lineno="13"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight></codeline>
     </programlisting>
     <location file="src/postgres.h"/>
   </compounddef>

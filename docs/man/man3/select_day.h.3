@@ -1,4 +1,4 @@
-.TH "src/select_day.h" 3 "Tue Jul 16 2019" "Version 0.1" "tiny-todo" \" -*- nroff -*-
+.TH "src/select_day.h" 3 "Wed Jul 24 2019" "Version 0.1" "tiny-todo" \" -*- nroff -*-
 .ad l
 .nh
 .SH NAME
@@ -12,12 +12,17 @@ src/select_day.h
 .br
 \fC#include <time\&.h>\fP
 .br
+\fC#include <string\&.h>\fP
+.br
 
 .SS "Functions"
 
 .in +1c
 .ti -1c
 .RI "char * \fBdate_as_str\fP ()"
+.br
+.ti -1c
+.RI "char * \fBpretty_date_as_str\fP (char *date)"
 .br
 .in -1c
 .SH "Function Documentation"
@@ -26,6 +31,10 @@ src/select_day.h
 Makes a string out of the current_date struct\&. This is needed because this string is actually the name of the psql table corresponding to the said date\&. 
 .PP
 Definition at line 17 of file select_day\&.c\&.
+.SS "char* pretty_date_as_str (char * date)"
+makes the date string pretty for the user by replacing '_' characters with ' '\&. 
+.PP
+Definition at line 33 of file select_day\&.c\&.
 .SH "Author"
 .PP 
 Generated automatically by Doxygen for tiny-todo from the source code\&.

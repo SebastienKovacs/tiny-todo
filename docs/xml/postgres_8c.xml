@@ -6,64 +6,66 @@
     <includes refid="select__day_8h" local="yes">select_day.h</includes>
     <includes refid="special__allocs_8h" local="yes">special_allocs.h</includes>
     <incdepgraph>
-      <node id="15">
+      <node id="23">
         <label>libpq-fe.h</label>
       </node>
-      <node id="16">
-        <label>select_day.h</label>
-        <link refid="select__day_8h"/>
-        <childnode refid="12" relation="include">
-        </childnode>
-        <childnode refid="13" relation="include">
-        </childnode>
-        <childnode refid="17" relation="include">
-        </childnode>
-      </node>
-      <node id="13">
-        <label>stdlib.h</label>
-      </node>
-      <node id="14">
-        <label>string.h</label>
-      </node>
-      <node id="10">
+      <node id="18">
         <label>src/postgres.c</label>
         <link refid="postgres_8c"/>
-        <childnode refid="11" relation="include">
+        <childnode refid="19" relation="include">
         </childnode>
-        <childnode refid="16" relation="include">
+        <childnode refid="24" relation="include">
         </childnode>
-        <childnode refid="18" relation="include">
+        <childnode refid="26" relation="include">
         </childnode>
       </node>
-      <node id="11">
+      <node id="19">
         <label>postgres.h</label>
         <link refid="postgres_8h"/>
-        <childnode refid="12" relation="include">
+        <childnode refid="20" relation="include">
         </childnode>
-        <childnode refid="13" relation="include">
+        <childnode refid="21" relation="include">
         </childnode>
-        <childnode refid="14" relation="include">
+        <childnode refid="22" relation="include">
         </childnode>
-        <childnode refid="15" relation="include">
+        <childnode refid="23" relation="include">
         </childnode>
       </node>
-      <node id="17">
-        <label>time.h</label>
+      <node id="21">
+        <label>stdlib.h</label>
       </node>
-      <node id="18">
+      <node id="26">
         <label>special_allocs.h</label>
         <link refid="special__allocs_8h"/>
-        <childnode refid="13" relation="include">
+        <childnode refid="21" relation="include">
         </childnode>
       </node>
-      <node id="12">
+      <node id="22">
+        <label>string.h</label>
+      </node>
+      <node id="25">
+        <label>time.h</label>
+      </node>
+      <node id="20">
         <label>stdio.h</label>
+      </node>
+      <node id="24">
+        <label>select_day.h</label>
+        <link refid="select__day_8h"/>
+        <childnode refid="20" relation="include">
+        </childnode>
+        <childnode refid="21" relation="include">
+        </childnode>
+        <childnode refid="25" relation="include">
+        </childnode>
+        <childnode refid="22" relation="include">
+        </childnode>
       </node>
     </incdepgraph>
       <sectiondef kind="func">
-      <memberdef kind="function" id="postgres_8c_1aae4c366a683913f1cf6daf2d34af904c" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="postgres_8c_1a2f2f7c7e5c3893a963de69035e9b6078" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
-        <definition>void stop_connection_db</definition>
+        <definition>static void stop_connection_db</definition>
         <argsstring>(PGconn *conn, PGresult *res)</argsstring>
         <name>stop_connection_db</name>
         <param>
@@ -82,9 +84,9 @@
         </inbodydescription>
         <location file="src/postgres.c" line="10" column="1" bodyfile="src/postgres.c" bodystart="10" bodyend="18"/>
       </memberdef>
-      <memberdef kind="function" id="postgres_8c_1acbd5a8380d5bf96ad26da5f608eea7c3" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="postgres_8c_1a99d202f1346c09ded2caf2ccb5b22dad" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>PGconn *</type>
-        <definition>PGconn* connect_to_db</definition>
+        <definition>static PGconn* connect_to_db</definition>
         <argsstring>()</argsstring>
         <name>connect_to_db</name>
         <briefdescription>
@@ -94,6 +96,23 @@
         <inbodydescription>
         </inbodydescription>
         <location file="src/postgres.c" line="24" column="1" bodyfile="src/postgres.c" bodystart="24" bodyend="36"/>
+      </memberdef>
+      <memberdef kind="function" id="postgres_8c_1a31f95d303dc1dee79ded9d230bd6c618" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>char *</type>
+        <definition>static char* make_sql_query</definition>
+        <argsstring>(char *date)</argsstring>
+        <name>make_sql_query</name>
+        <param>
+          <type>char *</type>
+          <declname>date</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Just takes the desired date as a string wich you can get from <ref refid="select__day_8c_1a35504e0c76033ef1b134d1c13c289740" kindref="member">date_as_str()</ref> in <ref refid="select__day_8c" kindref="compound">select_day.c</ref> and uses it to make an psql query. </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/postgres.c" line="42" column="1" bodyfile="src/postgres.c" bodystart="42" bodyend="48"/>
       </memberdef>
       <memberdef kind="function" id="postgres_8c_1a2ebb76a0d0bd2ef4e97f7ffab04557ef" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>int</type>
@@ -114,7 +133,7 @@
 <para>This function is very usefull for the times you want to do memory allocation for a pointer to fit a part or the whole database in it. The function returns the number of rows in a table in a db. I use it in the for loops in <ref refid="special__allocs_8c" kindref="compound">special_allocs.c</ref> </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="src/postgres.c" line="44" column="1" bodyfile="src/postgres.c" bodystart="44" bodyend="61"/>
+        <location file="src/postgres.c" line="56" column="1" bodyfile="src/postgres.c" bodystart="56" bodyend="72"/>
       </memberdef>
       <memberdef kind="function" id="postgres_8c_1af2d0925e7afa0b5a71432709b6c4305f" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>int</type>
@@ -135,13 +154,17 @@
 <para>Same as above but with columns instead of rows. </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="src/postgres.c" line="66" column="1" bodyfile="src/postgres.c" bodystart="66" bodyend="84"/>
+        <location file="src/postgres.c" line="77" column="1" bodyfile="src/postgres.c" bodystart="77" bodyend="95"/>
       </memberdef>
-      <memberdef kind="function" id="postgres_8c_1a37cb502eb3db86a087c48f34a382d836" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
-        <type>char *</type>
-        <definition>char* make_sql_query</definition>
-        <argsstring>(char *date)</argsstring>
-        <name>make_sql_query</name>
+      <memberdef kind="function" id="postgres_8c_1ae152a80cd4e711ce7995049e5c789406" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>static void create_table</definition>
+        <argsstring>(PGconn *conn, char *date)</argsstring>
+        <name>create_table</name>
+        <param>
+          <type>PGconn *</type>
+          <declname>conn</declname>
+        </param>
         <param>
           <type>char *</type>
           <declname>date</declname>
@@ -149,10 +172,10 @@
         <briefdescription>
         </briefdescription>
         <detaileddescription>
-<para>Just takes the desired date as a string wich you can get from <ref refid="select__day_8c_1a35504e0c76033ef1b134d1c13c289740" kindref="member">date_as_str()</ref> in <ref refid="select__day_8c" kindref="compound">select_day.c</ref> and uses it to make an psql query. </para>        </detaileddescription>
+<para>Creates a table in given db, used when there is no table for a given date. </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="src/postgres.c" line="90" column="1" bodyfile="src/postgres.c" bodystart="90" bodyend="96"/>
+        <location file="src/postgres.c" line="101" column="1" bodyfile="src/postgres.c" bodystart="101" bodyend="109"/>
       </memberdef>
       <memberdef kind="function" id="postgres_8c_1a0fe4bf1274aa2885b4f2f05722102b8d" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>char ***</type>
@@ -169,7 +192,7 @@
 <para>The big function of this file. It takes the whole table out of the db and puts it in this triple char pointer, aka a string table and return it. </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="src/postgres.c" line="103" column="1" bodyfile="src/postgres.c" bodystart="103" bodyend="122"/>
+        <location file="src/postgres.c" line="116" column="1" bodyfile="src/postgres.c" bodystart="116" bodyend="140"/>
       </memberdef>
       </sectiondef>
     <briefdescription>
@@ -182,7 +205,7 @@
 <codeline lineno="3"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="special__allocs_8h" kindref="compound">special_allocs.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
 <codeline lineno="4"><highlight class="normal"></highlight></codeline>
 <codeline lineno="5"><highlight class="normal"></highlight></codeline>
-<codeline lineno="10" refid="postgres_8h_1aae4c366a683913f1cf6daf2d34af904c" refkind="member"><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="postgres_8c_1aae4c366a683913f1cf6daf2d34af904c" kindref="member">stop_connection_db</ref>(PGconn<sp/>*conn,<sp/>PGresult<sp/>*res)</highlight></codeline>
+<codeline lineno="10"><highlight class="keyword">static</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>stop_connection_db(PGconn<sp/>*conn,<sp/>PGresult<sp/>*res)</highlight></codeline>
 <codeline lineno="11"><highlight class="normal">{</highlight></codeline>
 <codeline lineno="12"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(conn){</highlight></codeline>
 <codeline lineno="13"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>PQfinish(conn);</highlight></codeline>
@@ -193,7 +216,7 @@
 <codeline lineno="18"><highlight class="normal">}</highlight></codeline>
 <codeline lineno="19"><highlight class="normal"></highlight></codeline>
 <codeline lineno="20"><highlight class="normal"></highlight></codeline>
-<codeline lineno="24" refid="postgres_8h_1acbd5a8380d5bf96ad26da5f608eea7c3" refkind="member"><highlight class="normal">PGconn<sp/>*<ref refid="postgres_8c_1acbd5a8380d5bf96ad26da5f608eea7c3" kindref="member">connect_to_db</ref>()</highlight></codeline>
+<codeline lineno="24"><highlight class="keyword">static</highlight><highlight class="normal"><sp/>PGconn<sp/>*connect_to_db()</highlight></codeline>
 <codeline lineno="25"><highlight class="normal">{</highlight></codeline>
 <codeline lineno="26"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*conninfo<sp/>=<sp/></highlight><highlight class="stringliteral">&quot;dbname=tiny-todo&quot;</highlight><highlight class="normal">;</highlight></codeline>
 <codeline lineno="27"><highlight class="normal"><sp/><sp/><sp/><sp/>PGconn<sp/>*conn<sp/>=<sp/>PQconnectdb(conninfo);</highlight></codeline>
@@ -203,81 +226,96 @@
 <codeline lineno="31"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
 <codeline lineno="32"><highlight class="normal"></highlight></codeline>
 <codeline lineno="33"><highlight class="normal"><sp/><sp/><sp/><sp/>printf(</highlight><highlight class="stringliteral">&quot;Connection<sp/>to<sp/>database<sp/>failed:<sp/>%s&quot;</highlight><highlight class="normal">,<sp/>PQerrorMessage(conn));</highlight></codeline>
-<codeline lineno="34"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="postgres_8c_1aae4c366a683913f1cf6daf2d34af904c" kindref="member">stop_connection_db</ref>(conn,<sp/>NULL);</highlight></codeline>
+<codeline lineno="34"><highlight class="normal"><sp/><sp/><sp/><sp/>stop_connection_db(conn,<sp/>NULL);</highlight></codeline>
 <codeline lineno="35"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>NULL;</highlight></codeline>
 <codeline lineno="36"><highlight class="normal">}</highlight></codeline>
 <codeline lineno="37"><highlight class="normal"></highlight></codeline>
 <codeline lineno="38"><highlight class="normal"></highlight></codeline>
-<codeline lineno="44" refid="postgres_8h_1a2ebb76a0d0bd2ef4e97f7ffab04557ef" refkind="member"><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="postgres_8c_1a2ebb76a0d0bd2ef4e97f7ffab04557ef" kindref="member">get_rows</ref>(PGresult<sp/>*res,<sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*date){</highlight></codeline>
-<codeline lineno="45"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>rows<sp/>=<sp/>0;</highlight></codeline>
+<codeline lineno="42"><highlight class="keyword">static</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*make_sql_query(</highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*date)</highlight></codeline>
+<codeline lineno="43"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="44"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*query<sp/>=<sp/>malloc<sp/>(50<sp/>*<sp/></highlight><highlight class="keyword">sizeof</highlight><highlight class="normal">(</highlight><highlight class="keywordtype">char</highlight><highlight class="normal">));</highlight></codeline>
+<codeline lineno="45"><highlight class="normal"><sp/><sp/><sp/><sp/>sprintf(query,<sp/></highlight><highlight class="stringliteral">&quot;SELECT<sp/>task,<sp/>done<sp/>FROM<sp/>%s&quot;</highlight><highlight class="normal">,<sp/>date);</highlight></codeline>
 <codeline lineno="46"><highlight class="normal"></highlight></codeline>
-<codeline lineno="47"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(res<sp/>==<sp/>NULL){</highlight></codeline>
-<codeline lineno="48"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>PGconn<sp/>*conn=<sp/><ref refid="postgres_8c_1acbd5a8380d5bf96ad26da5f608eea7c3" kindref="member">connect_to_db</ref>();</highlight></codeline>
-<codeline lineno="49"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*query<sp/>=<sp/><ref refid="postgres_8c_1a37cb502eb3db86a087c48f34a382d836" kindref="member">make_sql_query</ref>(date);</highlight></codeline>
-<codeline lineno="50"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>res<sp/>=<sp/>PQexec(conn,<sp/>query);</highlight></codeline>
-<codeline lineno="51"><highlight class="normal"></highlight></codeline>
-<codeline lineno="52"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>rows<sp/>=<sp/>PQnfields(res);</highlight></codeline>
-<codeline lineno="53"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="postgres_8c_1aae4c366a683913f1cf6daf2d34af904c" kindref="member">stop_connection_db</ref>(conn,<sp/>res);</highlight></codeline>
-<codeline lineno="54"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>rows;</highlight></codeline>
-<codeline lineno="55"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
-<codeline lineno="56"><highlight class="normal"></highlight></codeline>
-<codeline lineno="57"><highlight class="normal"><sp/><sp/><sp/><sp/>rows<sp/>=<sp/>PQnfields(res);</highlight></codeline>
-<codeline lineno="58"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="postgres_8c_1aae4c366a683913f1cf6daf2d34af904c" kindref="member">stop_connection_db</ref>(NULL,<sp/>res);</highlight></codeline>
-<codeline lineno="59"><highlight class="normal"><sp/><sp/><sp/><sp/>printf(</highlight><highlight class="stringliteral">&quot;%d\n&quot;</highlight><highlight class="normal">,<sp/>rows);</highlight></codeline>
-<codeline lineno="60"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>rows;<sp/></highlight></codeline>
-<codeline lineno="61"><highlight class="normal">}</highlight></codeline>
-<codeline lineno="62"><highlight class="normal"></highlight></codeline>
+<codeline lineno="47"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>query;</highlight></codeline>
+<codeline lineno="48"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="49"><highlight class="normal"></highlight></codeline>
+<codeline lineno="50"><highlight class="normal"></highlight></codeline>
+<codeline lineno="56" refid="postgres_8h_1a2ebb76a0d0bd2ef4e97f7ffab04557ef" refkind="member"><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="postgres_8c_1a2ebb76a0d0bd2ef4e97f7ffab04557ef" kindref="member">get_rows</ref>(PGresult<sp/>*res,<sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*date){</highlight></codeline>
+<codeline lineno="57"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>rows<sp/>=<sp/>0;</highlight></codeline>
+<codeline lineno="58"><highlight class="normal"></highlight></codeline>
+<codeline lineno="59"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(res<sp/>==<sp/>NULL){</highlight></codeline>
+<codeline lineno="60"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>PGconn<sp/>*conn=<sp/>connect_to_db();</highlight></codeline>
+<codeline lineno="61"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*query<sp/>=<sp/>make_sql_query(date);</highlight></codeline>
+<codeline lineno="62"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>res<sp/>=<sp/>PQexec(conn,<sp/>query);</highlight></codeline>
 <codeline lineno="63"><highlight class="normal"></highlight></codeline>
-<codeline lineno="66" refid="postgres_8h_1af2d0925e7afa0b5a71432709b6c4305f" refkind="member"><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="postgres_8c_1af2d0925e7afa0b5a71432709b6c4305f" kindref="member">get_columns</ref>(PGresult<sp/>*res,<sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*date){</highlight></codeline>
-<codeline lineno="67"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>columns<sp/>=<sp/>0;</highlight></codeline>
+<codeline lineno="64"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>rows<sp/>=<sp/>PQntuples(res);</highlight></codeline>
+<codeline lineno="65"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>stop_connection_db(conn,<sp/>res);</highlight></codeline>
+<codeline lineno="66"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>rows;</highlight></codeline>
+<codeline lineno="67"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
 <codeline lineno="68"><highlight class="normal"></highlight></codeline>
-<codeline lineno="69"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(res<sp/>==<sp/>NULL){</highlight></codeline>
-<codeline lineno="70"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>PGconn<sp/>*conn<sp/>=<sp/><sp/><ref refid="postgres_8c_1acbd5a8380d5bf96ad26da5f608eea7c3" kindref="member">connect_to_db</ref>();</highlight></codeline>
-<codeline lineno="71"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*query<sp/>=<sp/><ref refid="postgres_8c_1a37cb502eb3db86a087c48f34a382d836" kindref="member">make_sql_query</ref>(date);</highlight></codeline>
-<codeline lineno="72"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>res<sp/>=<sp/>PQexec(conn,<sp/>query);</highlight></codeline>
+<codeline lineno="69"><highlight class="normal"><sp/><sp/><sp/><sp/>rows<sp/>=<sp/>PQntuples(res);</highlight></codeline>
+<codeline lineno="70"><highlight class="normal"><sp/><sp/><sp/><sp/>stop_connection_db(NULL,<sp/>res);</highlight></codeline>
+<codeline lineno="71"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>rows;<sp/></highlight></codeline>
+<codeline lineno="72"><highlight class="normal">}</highlight></codeline>
 <codeline lineno="73"><highlight class="normal"></highlight></codeline>
-<codeline lineno="74"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>columns<sp/>=<sp/>PQnfields(res);</highlight></codeline>
-<codeline lineno="75"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="postgres_8c_1aae4c366a683913f1cf6daf2d34af904c" kindref="member">stop_connection_db</ref>(conn,<sp/>res);</highlight></codeline>
-<codeline lineno="76"><highlight class="normal"></highlight></codeline>
-<codeline lineno="77"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>columns;</highlight></codeline>
-<codeline lineno="78"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="74"><highlight class="normal"></highlight></codeline>
+<codeline lineno="77" refid="postgres_8h_1af2d0925e7afa0b5a71432709b6c4305f" refkind="member"><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="postgres_8c_1af2d0925e7afa0b5a71432709b6c4305f" kindref="member">get_columns</ref>(PGresult<sp/>*res,<sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*date){</highlight></codeline>
+<codeline lineno="78"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>columns<sp/>=<sp/>0;</highlight></codeline>
 <codeline lineno="79"><highlight class="normal"></highlight></codeline>
-<codeline lineno="80"><highlight class="normal"><sp/><sp/><sp/><sp/>columns<sp/>=<sp/>PQnfields(res);</highlight></codeline>
-<codeline lineno="81"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="postgres_8c_1aae4c366a683913f1cf6daf2d34af904c" kindref="member">stop_connection_db</ref>(NULL,<sp/>res);</highlight></codeline>
-<codeline lineno="82"><highlight class="normal"></highlight></codeline>
-<codeline lineno="83"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>columns;<sp/></highlight></codeline>
-<codeline lineno="84"><highlight class="normal">}</highlight></codeline>
-<codeline lineno="85"><highlight class="normal"></highlight></codeline>
-<codeline lineno="86"><highlight class="normal"></highlight></codeline>
-<codeline lineno="90" refid="postgres_8h_1a37cb502eb3db86a087c48f34a382d836" refkind="member"><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*<ref refid="postgres_8c_1a37cb502eb3db86a087c48f34a382d836" kindref="member">make_sql_query</ref>(</highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*date)</highlight></codeline>
-<codeline lineno="91"><highlight class="normal">{</highlight></codeline>
-<codeline lineno="92"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*query<sp/>=<sp/>malloc<sp/>(50<sp/>*<sp/></highlight><highlight class="keyword">sizeof</highlight><highlight class="normal">(</highlight><highlight class="keywordtype">char</highlight><highlight class="normal">));</highlight></codeline>
-<codeline lineno="93"><highlight class="normal"><sp/><sp/><sp/><sp/>sprintf(query,<sp/></highlight><highlight class="stringliteral">&quot;SELECT<sp/>task,<sp/>done<sp/>FROM<sp/>%s&quot;</highlight><highlight class="normal">,<sp/>date);</highlight></codeline>
-<codeline lineno="94"><highlight class="normal"></highlight></codeline>
-<codeline lineno="95"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>query;</highlight></codeline>
-<codeline lineno="96"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="80"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(res<sp/>==<sp/>NULL){</highlight></codeline>
+<codeline lineno="81"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>PGconn<sp/>*conn<sp/>=<sp/><sp/>connect_to_db();</highlight></codeline>
+<codeline lineno="82"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*query<sp/>=<sp/>make_sql_query(date);</highlight></codeline>
+<codeline lineno="83"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>res<sp/>=<sp/>PQexec(conn,<sp/>query);</highlight></codeline>
+<codeline lineno="84"><highlight class="normal"></highlight></codeline>
+<codeline lineno="85"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>columns<sp/>=<sp/>PQnfields(res);</highlight></codeline>
+<codeline lineno="86"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>stop_connection_db(conn,<sp/>res);</highlight></codeline>
+<codeline lineno="87"><highlight class="normal"></highlight></codeline>
+<codeline lineno="88"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>columns;</highlight></codeline>
+<codeline lineno="89"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="90"><highlight class="normal"></highlight></codeline>
+<codeline lineno="91"><highlight class="normal"><sp/><sp/><sp/><sp/>columns<sp/>=<sp/>PQnfields(res);</highlight></codeline>
+<codeline lineno="92"><highlight class="normal"><sp/><sp/><sp/><sp/>stop_connection_db(NULL,<sp/>res);</highlight></codeline>
+<codeline lineno="93"><highlight class="normal"></highlight></codeline>
+<codeline lineno="94"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>columns;<sp/></highlight></codeline>
+<codeline lineno="95"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="96"><highlight class="normal"></highlight></codeline>
 <codeline lineno="97"><highlight class="normal"></highlight></codeline>
-<codeline lineno="98"><highlight class="normal"></highlight></codeline>
-<codeline lineno="103" refid="postgres_8h_1a0fe4bf1274aa2885b4f2f05722102b8d" refkind="member"><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>***<ref refid="postgres_8c_1a0fe4bf1274aa2885b4f2f05722102b8d" kindref="member">get_data</ref>(</highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*date)</highlight></codeline>
-<codeline lineno="104"><highlight class="normal">{</highlight></codeline>
-<codeline lineno="105"><highlight class="normal"><sp/><sp/><sp/><sp/>PGconn<sp/>*conn<sp/>=<sp/><ref refid="postgres_8c_1acbd5a8380d5bf96ad26da5f608eea7c3" kindref="member">connect_to_db</ref>();</highlight></codeline>
-<codeline lineno="106"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*query<sp/>=<sp/><ref refid="postgres_8c_1a37cb502eb3db86a087c48f34a382d836" kindref="member">make_sql_query</ref>(date);</highlight></codeline>
-<codeline lineno="107"><highlight class="normal"><sp/><sp/><sp/><sp/>PGresult<sp/>*res<sp/>=<sp/>PQexec(conn,<sp/>query);</highlight></codeline>
-<codeline lineno="108"><highlight class="normal"></highlight></codeline>
-<codeline lineno="109"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>rows<sp/>=<sp/>PQntuples(res);</highlight></codeline>
-<codeline lineno="110"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>columns<sp/>=<sp/>PQnfields(res);</highlight></codeline>
-<codeline lineno="111"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>***data<sp/>=<sp/><ref refid="special__allocs_8c_1a88096054ddc86913497fd58517582e69" kindref="member">alloc_data</ref>(rows,<sp/>columns);<sp/></highlight></codeline>
-<codeline lineno="112"><highlight class="normal"></highlight></codeline>
-<codeline lineno="113"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>i<sp/>=<sp/>0;<sp/>i<sp/>&lt;<sp/>rows<sp/>;<sp/>++i){</highlight></codeline>
-<codeline lineno="114"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>j<sp/>=<sp/>0;<sp/>j<sp/>&lt;<sp/>columns;<sp/>++j){</highlight></codeline>
-<codeline lineno="115"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>strcpy(data[i][j],<sp/>PQgetvalue(res,<sp/>i,<sp/>j));</highlight></codeline>
-<codeline lineno="116"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
-<codeline lineno="117"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
-<codeline lineno="118"><highlight class="normal"></highlight></codeline>
-<codeline lineno="119"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="postgres_8c_1aae4c366a683913f1cf6daf2d34af904c" kindref="member">stop_connection_db</ref>(conn,<sp/>res);</highlight></codeline>
-<codeline lineno="120"><highlight class="normal"></highlight></codeline>
-<codeline lineno="121"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>data;</highlight></codeline>
-<codeline lineno="122"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="101"><highlight class="keyword">static</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>create_table(PGconn<sp/>*conn,<sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*date)</highlight></codeline>
+<codeline lineno="102"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="103"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*ctStr1<sp/>=<sp/></highlight><highlight class="stringliteral">&quot;CREATE<sp/>TABLE<sp/>&quot;</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="104"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*ctStr2<sp/>=<sp/></highlight><highlight class="stringliteral">&quot;(task<sp/>text<sp/>NOT<sp/>NULL,<sp/>done<sp/>int<sp/>NOT<sp/>NULL)&quot;</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="105"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>query[80];</highlight></codeline>
+<codeline lineno="106"><highlight class="normal"><sp/><sp/><sp/><sp/>sprintf(query,<sp/></highlight><highlight class="stringliteral">&quot;%s%s%s&quot;</highlight><highlight class="normal">,<sp/>ctStr1,<sp/>date,<sp/>ctStr2);</highlight></codeline>
+<codeline lineno="107"><highlight class="normal"></highlight></codeline>
+<codeline lineno="108"><highlight class="normal"><sp/><sp/><sp/><sp/>PQexec(conn,<sp/>query);</highlight></codeline>
+<codeline lineno="109"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="110"><highlight class="normal"></highlight></codeline>
+<codeline lineno="111"><highlight class="normal"></highlight></codeline>
+<codeline lineno="116" refid="postgres_8h_1a0fe4bf1274aa2885b4f2f05722102b8d" refkind="member"><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>***<ref refid="postgres_8c_1a0fe4bf1274aa2885b4f2f05722102b8d" kindref="member">get_data</ref>(</highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*date)</highlight></codeline>
+<codeline lineno="117"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="118"><highlight class="normal"><sp/><sp/><sp/><sp/>PGconn<sp/>*conn<sp/>=<sp/>connect_to_db();</highlight></codeline>
+<codeline lineno="119"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*query<sp/>=<sp/>make_sql_query(date);</highlight></codeline>
+<codeline lineno="120"><highlight class="normal"><sp/><sp/><sp/><sp/>PGresult<sp/>*res<sp/>=<sp/>PQexec(conn,<sp/>query);</highlight></codeline>
+<codeline lineno="121"><highlight class="normal"></highlight></codeline>
+<codeline lineno="122"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(PQresultStatus(res)<sp/>==<sp/>PGRES_FATAL_ERROR){</highlight></codeline>
+<codeline lineno="123"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>create_table(conn,<sp/>date);</highlight></codeline>
+<codeline lineno="124"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>res<sp/>=<sp/>PQexec(conn,<sp/>query);</highlight></codeline>
+<codeline lineno="125"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="126"><highlight class="normal"></highlight></codeline>
+<codeline lineno="127"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>rows<sp/>=<sp/>PQntuples(res);</highlight></codeline>
+<codeline lineno="128"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>columns<sp/>=<sp/>PQnfields(res);</highlight></codeline>
+<codeline lineno="129"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>***data<sp/>=<sp/><ref refid="special__allocs_8c_1a88096054ddc86913497fd58517582e69" kindref="member">alloc_data</ref>(rows,<sp/>columns);<sp/></highlight></codeline>
+<codeline lineno="130"><highlight class="normal"></highlight></codeline>
+<codeline lineno="131"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>i<sp/>=<sp/>0;<sp/>i<sp/>&lt;<sp/>rows<sp/>;<sp/>++i){</highlight></codeline>
+<codeline lineno="132"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>j<sp/>=<sp/>0;<sp/>j<sp/>&lt;<sp/>columns;<sp/>++j){</highlight></codeline>
+<codeline lineno="133"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>strcpy(data[i][j],<sp/>PQgetvalue(res,<sp/>i,<sp/>j));</highlight></codeline>
+<codeline lineno="134"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="135"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="136"><highlight class="normal"></highlight></codeline>
+<codeline lineno="137"><highlight class="normal"><sp/><sp/><sp/><sp/>stop_connection_db(conn,<sp/>res);</highlight></codeline>
+<codeline lineno="138"><highlight class="normal"></highlight></codeline>
+<codeline lineno="139"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>data;</highlight></codeline>
+<codeline lineno="140"><highlight class="normal">}</highlight></codeline>
     </programlisting>
     <location file="src/postgres.c"/>
   </compounddef>

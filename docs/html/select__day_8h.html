@@ -90,6 +90,7 @@ $(document).ready(function(){initNavTree('select__day_8h.html','');});
 <div class="textblock"><code>#include &lt;stdio.h&gt;</code><br />
 <code>#include &lt;stdlib.h&gt;</code><br />
 <code>#include &lt;time.h&gt;</code><br />
+<code>#include &lt;string.h&gt;</code><br />
 </div><div class="textblock"><div class="dynheader">
 Include dependency graph for select_day.h:</div>
 <div class="dyncontent">
@@ -111,6 +112,8 @@ This graph shows which files directly or indirectly include this file:</div>
 Functions</h2></td></tr>
 <tr class="memitem:a35504e0c76033ef1b134d1c13c289740"><td class="memItemLeft" align="right" valign="top">char *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="select__day_8h.html#a35504e0c76033ef1b134d1c13c289740">date_as_str</a> ()</td></tr>
 <tr class="separator:a35504e0c76033ef1b134d1c13c289740"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a179128888cbded7bc20096a3c4f6f8a1"><td class="memItemLeft" align="right" valign="top">char *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="select__day_8h.html#a179128888cbded7bc20096a3c4f6f8a1">pretty_date_as_str</a> (char *date)</td></tr>
+<tr class="separator:a179128888cbded7bc20096a3c4f6f8a1"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Function Documentation</h2>
 <a id="a35504e0c76033ef1b134d1c13c289740"></a>
@@ -130,6 +133,27 @@ Functions</h2></td></tr>
 <p>Makes a string out of the current_date struct. This is needed because this string is actually the name of the psql table corresponding to the said date. </p>
 
 <p class="definition">Definition at line <a class="el" href="select__day_8c_source.html#l00017">17</a> of file <a class="el" href="select__day_8c_source.html">select_day.c</a>.</p>
+
+</div>
+</div>
+<a id="a179128888cbded7bc20096a3c4f6f8a1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a179128888cbded7bc20096a3c4f6f8a1">&#9670;&nbsp;</a></span>pretty_date_as_str()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">char* pretty_date_as_str </td>
+          <td>(</td>
+          <td class="paramtype">char *&#160;</td>
+          <td class="paramname"><em>date</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>makes the date string pretty for the user by replacing "_" characters with " ". </p>
+
+<p class="definition">Definition at line <a class="el" href="select__day_8c_source.html#l00033">33</a> of file <a class="el" href="select__day_8c_source.html">select_day.c</a>.</p>
 
 </div>
 </div>

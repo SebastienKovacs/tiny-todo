@@ -1,6 +1,8 @@
 var dir_68267d1309a1af8e8297ef4c3efbcdba =
 [
     [ "gui.c", "gui_8c.html", "gui_8c" ],
+    [ "popups.c", "popups_8c.html", null ],
+    [ "popups.h", "popups_8h.html", null ],
     [ "postgres.c", "postgres_8c.html", "postgres_8c" ],
     [ "postgres.h", "postgres_8h.html", "postgres_8h" ],
     [ "select_day.c", "select__day_8c.html", "select__day_8c" ],
