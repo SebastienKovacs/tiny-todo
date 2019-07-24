@@ -33,9 +33,13 @@ GtkWidget *find_child(GtkWidget* parent, const char* name)
 
 /**This function gets the needed object to add a todo entry and then calls
 *  the other functions which handel the user input and the entry popup.
+*  This function is not being called anywhere in this code but there is 
+*  a callback signal for the "+" button defined in glade/tiny-todo.glade.
 */
 void add_todo(GtkWidget *addEntry, GtkWindow *window)
 {
+	printf("add_todo\n");
+
 	GtkNotebook *mainNb = GTK_NOTEBOOK(find_child(GTK_WIDGET(window), "mainNb"));
 
 	char pageBoxName[20];
