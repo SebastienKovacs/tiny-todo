@@ -32,9 +32,10 @@ GtkWidget *find_child(GtkWidget* parent, const char* name)
 
 
 /**This function gets the needed object to add a todo entry and then calls
-*  the other functions which handel the user input and the entry popup.
-*  This function is not being called anywhere in this code but there is 
-*  a callback signal for the "+" button defined in glade/tiny-todo.glade.
+*  the other functions which handel the user input. This function is not 
+*  being called anywhere in this code but there is a callback signal for 
+*  the "+" button defined in glade/tiny-todo.glade. It also gets called if
+*  one presses enter in the GtkEntry.
 */
 void add_todo(GtkWidget *addEntry, GtkWindow *window)
 {
@@ -60,10 +61,10 @@ void add_todo(GtkWidget *addEntry, GtkWindow *window)
 }
 
 
-/**Creates a tab in mainNb with the tasks for the current day. Right 
-*  now it really only takes the todos for the 9th of july because
-*  the function to create new psql tables if there are no entries for 
-*  a date isn't done yet.
+/**Creates a tab in mainNb with the tasks for the current day.
+*  If there is no entry in the database for the current date
+*  a new entry is created. This function is called on program
+*  startup.
 */
 void add_page_todays_date(GtkNotebook *mainNb)
 {
@@ -93,9 +94,7 @@ void add_page_todays_date(GtkNotebook *mainNb)
 
 
 /**Creates a GtkNotebook, adds it to a GtkBox and then calls 
-*  add_page_todays_date() to fill it with some content. Maybe in the 
-*  future the builder parameter will be removed since only makes me 
-*  save two or three lines of code.
+*  add_page_todays_date() to fill it with some content.
 */
 GtkNotebook *create_notebook(GtkBuilder *builder)
 {
@@ -114,6 +113,7 @@ GtkNotebook *create_notebook(GtkBuilder *builder)
 
 /**Initializes the main componenets like builder or the root widget,
 *  in this case the GtkWindow main_window. Calls create_notebook().
+*  This function is just here to make main() smaller and more readable.
 */
 GtkWindow *create_app(GtkWindow *window)
 {
