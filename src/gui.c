@@ -43,7 +43,6 @@ void add_todo(GtkWidget *addEntry, GtkWindow *window)
 	const char *todo = gtk_entry_get_text(textEntry);
 
 	if (strlen(todo) < 1){
-		printf("no\n");
 		return;
 	}
 	
