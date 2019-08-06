@@ -1,4 +1,7 @@
 #include "popups.h"
 
 
-void
+char *ask_for_todo(void)
+{
+	
+}

@@ -27,7 +27,7 @@ char *date_as_str()
 }
 
 
-/**makes the date string pretty for the user by replacing "_" characters
+/**Makes the date string pretty for the user by replacing "_" characters
 *  with " ".
 */
 char *pretty_date_as_str(char *date)

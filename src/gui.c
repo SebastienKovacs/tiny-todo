@@ -38,13 +38,25 @@ GtkWidget *find_child(GtkWidget* parent, const char* name)
 */
 void add_todo(GtkWidget *addEntry, GtkWindow *window)
 {
-	printf("add_todo\n");
+	GtkEntry *textEntry = GTK_ENTRY(find_child(GTK_WIDGET(window), "text_entry"));
+	const char *todo = gtk_entry_get_text(textEntry);
 
+	if (strlen(todo) < 1){
+		printf("no\n");
+		return;
+	}
+	
 	GtkNotebook *mainNb = GTK_NOTEBOOK(find_child(GTK_WIDGET(window), "mainNb"));
 
 	char pageBoxName[20];
 	sprintf(pageBoxName, "pageBox_on_page_%d", gtk_notebook_get_current_page(mainNb));
 	GtkBox *pageBox = GTK_BOX(find_child(GTK_WIDGET(mainNb), pageBoxName));
+
+	GtkWidget *todoLabel = gtk_label_new(todo);
+	gtk_box_pack_start(pageBox, todoLabel, FALSE, FALSE, 2);
+	gtk_widget_show(todoLabel);
+
+	gtk_entry_set_text(textEntry, "");
 }
 
 
@@ -70,11 +82,12 @@ void add_page_todays_date(GtkNotebook *mainNb)
 	for (int i = 0; i < rows; ++i){
 		label = gtk_label_new(data[i][0]);
 		gtk_box_pack_start(pageBox, label, FALSE, FALSE, 2);
-		g_object_unref(label);
 	}
 
 	gtk_notebook_append_page(mainNb, GTK_WIDGET(pageBox), gtk_label_new(prettyDate));
-	free(date); 
+	
+	free(date);
+	free(data); 
 	free(prettyDate);
 }
 
@@ -91,7 +104,7 @@ GtkNotebook *create_notebook(GtkBuilder *builder)
 	gtk_notebook_set_scrollable(mainNb, TRUE);
 	
 	GtkBox *mainBox = GTK_BOX(gtk_builder_get_object(builder, "main_box"));
-	gtk_box_pack_start(mainBox, GTK_WIDGET(mainNb), FALSE, FALSE, 0);
+	gtk_box_pack_start(mainBox, GTK_WIDGET(mainNb), TRUE, TRUE, 2);
 
 	add_page_todays_date(mainNb);
 	
@@ -121,7 +134,7 @@ GtkWindow *create_app(GtkWindow *window)
 
 /**Just the entry point of the programm, nothing special happening here.
 */
-int main(int argc, char *argv[])
+int main(int argc, char **argv)
 {
 	gtk_init(&argc, &argv);
 
