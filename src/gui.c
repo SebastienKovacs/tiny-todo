@@ -39,6 +39,8 @@ GtkWidget *find_child(GtkWidget* parent, const char* name)
 */
 void add_todo(GtkWidget *addEntry, GtkWindow *window)
 {
+	(void)addEntry;
+
 	GtkEntry *textEntry = GTK_ENTRY(find_child(GTK_WIDGET(window), "text_entry"));
 	const char *todo = gtk_entry_get_text(textEntry);
 
@@ -117,7 +119,7 @@ GtkNotebook *create_notebook(GtkBuilder *builder)
 GtkWindow *create_app(GtkWindow *window)
 {
 	GtkBuilder *builder = gtk_builder_new();
-	gtk_builder_add_from_file (builder, "src/glade/tiny-todo.glade", NULL);
+	gtk_builder_add_from_file (builder, "/home/seb/dev/c/tiny-todo/src/glade/tiny-todo.glade", NULL);
 	gtk_builder_connect_signals(builder, NULL);	
 
 	window = GTK_WINDOW(gtk_builder_get_object(builder, "main_window"));

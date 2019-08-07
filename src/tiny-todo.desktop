@@ -1,0 +1,6 @@
+[Desktop Entry]
+	Name=tiny-todo
+	Exec=/home/seb/dev/c/tiny-todo/tiny-todo
+	Icon=/home/seb/dev/c/tiny-todo/src/icon.png
+	Type=Application
+	Categories=GTK;GNOME;Utility;

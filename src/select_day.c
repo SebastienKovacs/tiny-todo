@@ -36,8 +36,10 @@ char *pretty_date_as_str(char *date)
 	char *prettyDate = malloc (strlen(date));
 	strcpy(prettyDate, date);
 
+	prettyDate[0] = 32;
+
 	while ((tmp = strchr(prettyDate, 95))){
-		*tmp = 32;
+		*tmp = 47;
 	}
 
 	return prettyDate;

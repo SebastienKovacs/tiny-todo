@@ -31,6 +31,11 @@ tiny-todo: $(SRC)
 	@echo "BUILD SUCCESSFUL"
 	@echo "================"
 	@echo ""
+
+install:
+	cp src/tiny-todo.desktop /usr/share/applications/tiny-todo.desktop
+	cp tiny-todo /bin/tiny-todo
+	cp src/glade/tiny-todo.glade /etc/tiny-todo/tiny-todo.glade
 	
 clean:
 	rm tiny-todo
