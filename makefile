@@ -36,6 +36,7 @@ install:
 	cp src/tiny-todo.desktop /usr/share/applications/tiny-todo.desktop
 	cp tiny-todo /bin/tiny-todo
 	cp src/glade/tiny-todo.glade /etc/tiny-todo/tiny-todo.glade
+	cp src/icon.png /etc/tiny-todo/icon.png
 	
 clean:
 	rm tiny-todo
