@@ -74,10 +74,10 @@
         <briefdescription>
         </briefdescription>
         <detaileddescription>
-<para>makes the date string pretty for the user by replacing &quot;_&quot; characters with &quot; &quot;. </para>        </detaileddescription>
+<para>Makes the date string pretty for the user by replacing &quot;_&quot; characters with &quot;/&quot;. </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="src/select_day.c" line="33" column="1" bodyfile="src/select_day.c" bodystart="33" bodyend="44"/>
+        <location file="src/select_day.c" line="33" column="1" bodyfile="src/select_day.c" bodystart="33" bodyend="46"/>
       </memberdef>
       </sectiondef>
     <briefdescription>
@@ -114,12 +114,14 @@
 <codeline lineno="36"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*prettyDate<sp/>=<sp/>malloc<sp/>(strlen(date));</highlight></codeline>
 <codeline lineno="37"><highlight class="normal"><sp/><sp/><sp/><sp/>strcpy(prettyDate,<sp/>date);</highlight></codeline>
 <codeline lineno="38"><highlight class="normal"></highlight></codeline>
-<codeline lineno="39"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">while</highlight><highlight class="normal"><sp/>((tmp<sp/>=<sp/>strchr(prettyDate,<sp/>95))){</highlight></codeline>
-<codeline lineno="40"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*tmp<sp/>=<sp/>32;</highlight></codeline>
-<codeline lineno="41"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
-<codeline lineno="42"><highlight class="normal"></highlight></codeline>
-<codeline lineno="43"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>prettyDate;</highlight></codeline>
-<codeline lineno="44"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="39"><highlight class="normal"><sp/><sp/><sp/><sp/>prettyDate[0]<sp/>=<sp/>32;</highlight></codeline>
+<codeline lineno="40"><highlight class="normal"></highlight></codeline>
+<codeline lineno="41"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">while</highlight><highlight class="normal"><sp/>((tmp<sp/>=<sp/>strchr(prettyDate,<sp/>95))){</highlight></codeline>
+<codeline lineno="42"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*tmp<sp/>=<sp/>47;</highlight></codeline>
+<codeline lineno="43"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="44"><highlight class="normal"></highlight></codeline>
+<codeline lineno="45"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>prettyDate;</highlight></codeline>
+<codeline lineno="46"><highlight class="normal">}</highlight></codeline>
     </programlisting>
     <location file="src/select_day.c"/>
   </compounddef>

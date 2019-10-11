@@ -20,7 +20,7 @@ char ***alloc_data(int dim1, int dim2)
 }
 
 
-/**Frees said memeory allocated above.
+/**Frees memory allocated above.
 */
 void free_data(char ***data, int dim1, int dim2)
 {

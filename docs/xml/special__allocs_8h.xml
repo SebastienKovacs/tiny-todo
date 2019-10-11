@@ -76,7 +76,7 @@
         <briefdescription>
         </briefdescription>
         <detaileddescription>
-<para>Frees said memeory allocated above. </para>        </detaileddescription>
+<para>Frees memory allocated above. </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
         <location file="src/special_allocs.h" line="7" column="1" bodyfile="src/special_allocs.c" bodystart="25" bodyend="34"/>

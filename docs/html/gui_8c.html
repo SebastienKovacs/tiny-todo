@@ -112,8 +112,8 @@ Functions</h2></td></tr>
 <tr class="separator:af5ff0123b7443cd1106720cbc744fdb6"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aba76b13326477ee2a3456864098f992a"><td class="memItemLeft" align="right" valign="top">GtkWindow *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="gui_8c.html#aba76b13326477ee2a3456864098f992a">create_app</a> (GtkWindow *window)</td></tr>
 <tr class="separator:aba76b13326477ee2a3456864098f992a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a0ddf1224851353fc92bfbff6f499fa97"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="gui_8c.html#a0ddf1224851353fc92bfbff6f499fa97">main</a> (int argc, char *argv[])</td></tr>
-<tr class="separator:a0ddf1224851353fc92bfbff6f499fa97"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3c04138a5bfe5d72780bb7e82a18e627"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="gui_8c.html#a3c04138a5bfe5d72780bb7e82a18e627">main</a> (int argc, char **argv)</td></tr>
+<tr class="separator:a3c04138a5bfe5d72780bb7e82a18e627"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Function Documentation</h2>
 <a id="a59b418a9aae9f2e2857f4a43adbefe16"></a>
@@ -131,9 +131,9 @@ Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Creates a tab in mainNb with the tasks for the current day. Right now it really only takes the todos for the 9th of july because the function to create new psql tables if there are no entries for a date isn't done yet. </p>
+<p>Creates a tab in mainNb with the tasks for the current day. If there is no entry in the database for the current date a new entry is created. This function is called on program startup. </p>
 
-<p class="definition">Definition at line <a class="el" href="gui_8c_source.html#l00056">56</a> of file <a class="el" href="gui_8c_source.html">gui.c</a>.</p>
+<p class="definition">Definition at line <a class="el" href="gui_8c_source.html#l00070">70</a> of file <a class="el" href="gui_8c_source.html">gui.c</a>.</p>
 
 </div>
 </div>
@@ -162,9 +162,9 @@ Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>This function gets the needed object to add a todo entry and then calls the other functions which handel the user input and the entry popup. This function is not being called anywhere in this code but there is a callback signal for the "+" button defined in glade/tiny-todo.glade. </p>
+<p>This function gets the needed object to add a todo entry and then calls the other functions which handel the user input. This function is not being called anywhere in this code but there is a callback signal for the "+" button defined in glade/tiny-todo.glade. It also gets called if one presses enter in the GtkEntry. </p>
 
-<p class="definition">Definition at line <a class="el" href="gui_8c_source.html#l00039">39</a> of file <a class="el" href="gui_8c_source.html">gui.c</a>.</p>
+<p class="definition">Definition at line <a class="el" href="gui_8c_source.html#l00040">40</a> of file <a class="el" href="gui_8c_source.html">gui.c</a>.</p>
 
 </div>
 </div>
@@ -183,9 +183,9 @@ Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Initializes the main componenets like builder or the root widget, in this case the GtkWindow main_window. Calls <a class="el" href="gui_8c.html#af5ff0123b7443cd1106720cbc744fdb6">create_notebook()</a>. </p>
+<p>Initializes the main componenets like builder or the root widget, in this case the GtkWindow main_window. Calls <a class="el" href="gui_8c.html#af5ff0123b7443cd1106720cbc744fdb6">create_notebook()</a>. This function is just here to make <a class="el" href="gui_8c.html#a3c04138a5bfe5d72780bb7e82a18e627">main()</a> smaller and more readable. </p>
 
-<p class="definition">Definition at line <a class="el" href="gui_8c_source.html#l00105">105</a> of file <a class="el" href="gui_8c_source.html">gui.c</a>.</p>
+<p class="definition">Definition at line <a class="el" href="gui_8c_source.html#l00119">119</a> of file <a class="el" href="gui_8c_source.html">gui.c</a>.</p>
 
 </div>
 </div>
@@ -204,9 +204,9 @@ Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Creates a GtkNotebook, adds it to a GtkBox and then calls <a class="el" href="gui_8c.html#a59b418a9aae9f2e2857f4a43adbefe16">add_page_todays_date()</a> to fill it with some content. Maybe in the future the builder parameter will be removed since only makes me save two or three lines of code. </p>
+<p>Creates a GtkNotebook, adds it to a GtkBox and then calls <a class="el" href="gui_8c.html#a59b418a9aae9f2e2857f4a43adbefe16">add_page_todays_date()</a> to fill it with some content. </p>
 
-<p class="definition">Definition at line <a class="el" href="gui_8c_source.html#l00087">87</a> of file <a class="el" href="gui_8c_source.html">gui.c</a>.</p>
+<p class="definition">Definition at line <a class="el" href="gui_8c_source.html#l00100">100</a> of file <a class="el" href="gui_8c_source.html">gui.c</a>.</p>
 
 </div>
 </div>
@@ -241,8 +241,8 @@ Functions</h2></td></tr>
 
 </div>
 </div>
-<a id="a0ddf1224851353fc92bfbff6f499fa97"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a0ddf1224851353fc92bfbff6f499fa97">&#9670;&nbsp;</a></span>main()</h2>
+<a id="a3c04138a5bfe5d72780bb7e82a18e627"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3c04138a5bfe5d72780bb7e82a18e627">&#9670;&nbsp;</a></span>main()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -256,8 +256,8 @@ Functions</h2></td></tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">char *&#160;</td>
-          <td class="paramname"><em>argv</em>[]&#160;</td>
+          <td class="paramtype">char **&#160;</td>
+          <td class="paramname"><em>argv</em>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -268,7 +268,7 @@ Functions</h2></td></tr>
 </div><div class="memdoc">
 <p>Just the entry point of the programm, nothing special happening here. </p>
 
-<p class="definition">Definition at line <a class="el" href="gui_8c_source.html#l00124">124</a> of file <a class="el" href="gui_8c_source.html">gui.c</a>.</p>
+<p class="definition">Definition at line <a class="el" href="gui_8c_source.html#l00138">138</a> of file <a class="el" href="gui_8c_source.html">gui.c</a>.</p>
 
 </div>
 </div>

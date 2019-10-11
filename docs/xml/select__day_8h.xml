@@ -85,10 +85,10 @@
         <briefdescription>
         </briefdescription>
         <detaileddescription>
-<para>makes the date string pretty for the user by replacing &quot;_&quot; characters with &quot; &quot;. </para>        </detaileddescription>
+<para>Makes the date string pretty for the user by replacing &quot;_&quot; characters with &quot;/&quot;. </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="src/select_day.h" line="10" column="1" bodyfile="src/select_day.c" bodystart="33" bodyend="44"/>
+        <location file="src/select_day.h" line="10" column="1" bodyfile="src/select_day.c" bodystart="33" bodyend="46"/>
       </memberdef>
       </sectiondef>
     <briefdescription>
